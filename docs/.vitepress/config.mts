@@ -44,6 +44,7 @@ export default defineConfig({
           { text: "👋 欢迎来到 ToolDelta Wiki", link: "/intro" },
           { text: "🌹 FAQ", link: "/FAQ" },
           { text: "📘 项目介绍", link: "/jieshao" },
+          { text: "🧊 插件市场", link: "/plugin_market" },
           {
             text: "✨ 组合式插件开发指南",
             items: [
