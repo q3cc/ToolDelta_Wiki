@@ -7,8 +7,8 @@
  - [退出 ToolDelta](#退出ToolDelta)
 
 # <span id="下载ToolDelta"><font color="FF7777" size=4>下载 ToolDelta</font></span>
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.2/ToolDelta-windows.exe">Windows用户点我</a>
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.2/ToolDelta-linux">Linux用户点我</a>
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.2/ToolDelta-windows.exe">Windows用户点我</a>  
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.2/ToolDelta-linux">Linux用户点我</a>  
 
 # <span id="启动ToolDelta"><font color="FFAA00" size=4>ToolDelta， 启动！</font></span>
 Windows: 双击所获得的 exe 文件即可.
