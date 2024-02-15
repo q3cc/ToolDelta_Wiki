@@ -38,50 +38,50 @@ export default defineConfig({
     ],
 
     sidebar: [
+      { text: "👋 欢迎来到 ToolDelta Wiki", link: "/intro" },
+      { text: "🌹 FAQ", link: "/FAQ" },
+      { text: "📘 项目介绍", link: "/jieshao" },
       {
-        text: "教程",
+        text: "使用教程",
         items: [
-          { text: "👋 欢迎来到 ToolDelta Wiki", link: "/intro" },
-          { text: "🌹 FAQ", link: "/FAQ" },
-          { text: "📘 项目介绍", link: "/jieshao" },
           { text: "📖 使用教程", link: "/learn-use" },
           { text: "🧊 插件市场", link: "/plugin_market" },
+        ],
+      },
+      {
+        text: "✨ 组合式插件开发指南",
+        items: [
+          { text: "添加一个插件文件", link: "/class-plugin/添加文件" },
+          { text: "方法和接口", link: "/class-plugin/方法和接口" },
           {
-            text: "✨ 组合式插件开发指南",
+            text: "进阶",
             items: [
-              { text: "添加一个插件文件", link: "/class-plugin/添加文件" },
-              { text: "方法和接口", link: "/class-plugin/方法和接口" },
+              { text: "插件API", link: "/class-plugin/up/插件API" },
               {
-                text: "进阶",
-                items: [
-                  { text: "插件API", link: "/class-plugin/up/插件API" },
-                  {
-                    text: "Builtins 与 Config 的方法",
-                    link: "/class-plugin/up/Builtins 与 Config 的方法",
-                  },
-                ],
-              },
-              {
-                text: "附录",
-                items: [
-                  {
-                    text: "虚拟JSON文件系统",
-                    link: "/class-plugin/add-on/虚拟JSON文件系统",
-                  },
-                  {
-                    text: "game_ctrl 的方法",
-                    link: "/class-plugin/add-on/game_ctrl",
-                  },
-                  {
-                    text: "config检测样式",
-                    link: "/class-plugin/add-on/config检测样式",
-                  },
-                ],
-              },
-              {
-                text: "# 敬请期待 #",
+                text: "Builtins 与 Config 的方法",
+                link: "/class-plugin/up/Builtins 与 Config 的方法",
               },
             ],
+          },
+          {
+            text: "附录",
+            items: [
+              {
+                text: "虚拟JSON文件系统",
+                link: "/class-plugin/add-on/虚拟JSON文件系统",
+              },
+              {
+                text: "game_ctrl 的方法",
+                link: "/class-plugin/add-on/game_ctrl",
+              },
+              {
+                text: "config检测样式",
+                link: "/class-plugin/add-on/config检测样式",
+              },
+            ],
+          },
+          {
+            text: "# 敬请期待 #",
           },
         ],
       },
