@@ -14,8 +14,7 @@ hero:
       link: /intro
     - theme: alt
       text: 加入交流群
-      link: http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=QGi0mRDaSwMqpyeqr5HKldw724Pw94hP&authKey=ZqMqMOHRPvznBOUR08ugfTvYSt5czdZHIvBwIRg7136nGZXqGEV%2FUaM0Vs0jk3lJ&noverify=0&group_code=462612384
-
+      link: https://qm.qq.com/q/dzwOUecEvu
 features:
   - title: '为什么使用本 Wiki?'
     icon: 🔨
