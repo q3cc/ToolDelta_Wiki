@@ -12,6 +12,9 @@ export default defineConfig({
     ["script", { async: "", src: "/m.js" }],
     ["script", { async: "true", src: "/cursor.js" }],
   ],
+  markdown: {
+    lineNumbers: true,
+  },
   sitemap: {
     hostname: "https://tooldelta.tblstudio.cn",
   },
