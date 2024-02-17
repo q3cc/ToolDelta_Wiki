@@ -1,4 +1,8 @@
-# 进阶 - Builtins 与 Config 的方法
+# 进阶 - Builtins 与 Config 的接口方法
+
+<b>Config 类</b>
+· Config 类 旨在提供一些与配置文件的检测和获取有关的方法。
+
 我们知道, 每一个组件都需要配置文件才能做到自定义化;
 但是在Python里, 如何校验一个配置文件的内容是否合法呢, 例如:
 ```python
@@ -8,7 +12,6 @@ a_dict = {
 }
 ```
 我们需要检验 `"年龄"` 是否为正整数, `"名字"` 是否为字符串;
-使用 `Config.getPluginConfigAndVersion` 方法即可做到快速生成默认配置文件/读取并校验配置文件!
 
 比如这样的一个示例插件, 它专门对一个dict进行检测:
 ```python
@@ -43,6 +46,7 @@ CFG_CHECKER = {
 } # 标准样式
 Config.checkDict(CFG_CHECKER, CFG_TO_CHECK) # 如果有什么问题, 在这会直接引发报错, 你可以不用处理报错, 这样 配置文件哪里需要修改 用户一眼就可以看到; 以上这种写法不会引发它的报错. 但是你可以试试把halo的值改为-1, 看看会发什么.
 # 引发的异常基类为 Config.ConfigError, 可以用这个方法捕捉异常.
+
 ```
 这只是对插件配置文件的检验, 如果我们想做插件写入默认配置, 读取配置文件, 检验配置文件的全流程, 那么请看下面的步骤:
 ```python
@@ -70,8 +74,12 @@ class GetConfigOrWriteIt(Plugin):
         print(self.cfg["示例2"]) # 3.1415926
  ```
 
-`getPluginConfigAndVersion` 的参数分别是: 插件配置名, 配置文件格式, 默认配置, 默认配置版本
-它会尝试去获取用户关于此插件的配置文件信息, 若文件未找到, 则利用给出的默认插件配置文件创建一个新的
+ - 使用 `Config.getPluginConfigAndVersion` 方法即可做到快速生成默认配置文件/读取并校验配置文件!
+ - `getPluginConfigAndVersion` 的参数分别是: 插件配置名, 配置文件格式, 默认配置, 默认配置版本
+它会尝试去获取用户关于此插件的配置文件信息, 若文件未找到, 则利用给出的默认插件配置文件创建一个新的配置文件
+
+<b>Builtins 类</b>
+ - Builtins 提供了一些常用的非常有用的方法。
 
  - Builtins.SimpleFmt: 这个功能相当于str.replace, 只不过方便了一些.
  在之前的插件做如下修改:
