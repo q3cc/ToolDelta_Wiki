@@ -11,7 +11,7 @@
 <a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.13/ToolDelta-linux">Linux用户点我</a>  
 安卓手机用户请使用Termux运行这段命令：
 
-`apt-get update -y && apt-get upgrade -y && curl -sSL https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh`
+`apt-get update -y && apt-get upgrade -y && curl -sSL  https://mirror.ghproxy.com/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash`
 
 # <span id="启动ToolDelta"><font color="FFAA00" size=4>ToolDelta， 启动！</font></span>
 Windows: 双击所获得的 exe 文件即可.  
