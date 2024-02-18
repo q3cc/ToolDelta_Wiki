@@ -54,7 +54,7 @@ export default defineConfig({
       {
         text: "✨ 组合式插件开发指南",
         items: [
-          { text: "添加一个插件文件", link: "/class-plugin/添加文件" },
+          { text: "添加一个插件文件", link: "/class-plugin/创建插件" },
           { text: "方法和接口", link: "/class-plugin/方法和接口" },
           {
             text: "进阶",
@@ -85,6 +85,32 @@ export default defineConfig({
           },
           {
             text: "# 敬请期待 #",
+          },
+        ],
+      },
+      {
+        text: "✨ 注入式插件开发指南",
+        items: [
+          {
+            text: "添加一个插件文件",
+            link: "/injected-plugin/创建插件",
+          },
+          {
+            text: "编写教程",
+            link: "/injected-plugin/编写教程",
+          },
+          {
+            text: "方法和接口",
+            items: [
+              {
+                text: "事件获取API",
+                link: "/injected-plugin/事件获取",
+              },
+              {
+                text: "命令收发以及更多接口API",
+                link: "/injected-plugin/命令收发与接口",
+              },
+            ],
           },
         ],
       },
