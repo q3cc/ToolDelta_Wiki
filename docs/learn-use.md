@@ -7,8 +7,8 @@
  - [退出 ToolDelta](#退出ToolDelta)
 
 # <span id="下载ToolDelta"><font color="FF7777" size=4>下载 ToolDelta</font></span>
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.13/ToolDelta-windows.exe">Windows用户点我</a>   
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.13/ToolDelta-linux">Linux用户点我</a>  
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.16/ToolDelta-windows.exe">Windows用户点我</a>   
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.16/ToolDelta-linux">Linux用户点我</a>  
 安卓手机用户请使用Termux运行这段命令：
 
 `apt-get update -y && apt-get upgrade -y && curl -sSL  https://mirror.ghproxy.com/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash`
