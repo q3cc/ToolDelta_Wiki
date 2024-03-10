@@ -7,8 +7,8 @@
  - [退出 ToolDelta](#退出ToolDelta)
 
 # <span id="下载ToolDelta"><font color="FF7777" size=4>下载 ToolDelta</font></span>
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.21/ToolDelta-windows.exe">Windows用户点我</a>   
-<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.3.21/ToolDelta-linux">Linux用户点我</a>  
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.4.4/ToolDelta-windows.exe">Windows用户点我</a>   
+<a href="https://mirror.ghproxy.com/github.com/ToolDelta/ToolDelta/releases/download/0.4.4/ToolDelta-linux">Linux用户点我</a>  
 安卓手机用户请使用Termux运行这段命令：
 
 `apt-get update -y && apt-get upgrade -y && curl -sSL  https://mirror.ghproxy.com/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash`
@@ -20,7 +20,7 @@ Linux: 输入 ./ToolDelta 即可.
 ```
 [15:00]  加载  ToolDelta 正在启动..
 [15:00]  加载  ToolDelta - Panel Embed By SuperScript
-[15:00]  加载  ToolDelta v 0.3.21
+[15:00]  加载  ToolDelta v 0.4.4
 [15:00]  加载  ToolDelta - Panel 已启动
 [15:01]  报错  请到FB官网 user.fastbuilder.pro 下载FBToken, 并放在本目录中, 或者在下面输入fbtoken
 [15:01]  输入  请输入fbtoken:
