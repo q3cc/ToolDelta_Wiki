@@ -8,10 +8,10 @@
 你在插件制作了一个很有用的方法函数, 并且想让其他人也能轻松使用你制作的方法, 那么你可以这么做(推荐写法):
 
 ```python
-from tooldelta import plugins
+from tooldelta import plugins, Plugin
 
-@plugins.add_plugin_as_api(apiname: str, version: tuple[int, int, int]=(0, 0, 1))
-class MyPlugin(Plugin, PluginAPI):
+@plugins.add_plugin_as_api(apiname="能干很多事的插件", version=(0, 0, 1))
+class MyPlugin(Plugin):
     ...
     def kemusan(self, ...):"假设这个方法可以让机器人跳科目三"
     def yuanshen(self, ...):...
@@ -26,7 +26,7 @@ class MyPlugin(Plugin, PluginAPI):
 class HisPlugin(Plugin):
     ...
     def on_def(self):
-        self.getting_api = plugins.get_plugin_api(apiname: str, min_version: tuple[int, int, int]=(0, 0, 1))
+        self.getting_api = plugins.get_plugin_api(apiname="能干很多事的插件", min_version=(0, 0, 1))
 
     def use_api(self):
         self.getting_api.kemusan(...)
