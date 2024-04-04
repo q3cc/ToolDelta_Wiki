@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 'ToolDealta Wiki'
+  name: 'ToolDelta Wiki'
   tagline: 感谢各位的到来💡
   image:
     src: /logo.ico
