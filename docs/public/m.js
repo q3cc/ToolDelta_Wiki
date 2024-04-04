@@ -41,7 +41,7 @@ queueMicrotask(() => {
         Log.bind(console, `%c ${ascll[0]} %c ${ascll[1]} %c \n${ascll[2]} %c\n${ascll[3]}\n`, 'color:white;background-color:#4fd953', '', '', 'font-size:450%')
         , 200)
 
-    setTimeout(Log.bind(console, '%c WELCOME %c 你好，小笨蛋', 'color:white;background-color:#4f90d9', '')
+    setTimeout(Log.bind(console, '%c WELCOME %c 你好，小笨蛋，你看到了小彩蛋~', 'color:white;background-color:#4f90d9', '')
         , 250)
 
     setTimeout(
