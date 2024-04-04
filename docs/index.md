@@ -18,7 +18,7 @@ hero:
 features:
   - title: '为什么使用本 Wiki?'
     icon: 🔨
-    details: 本 Wiki 旨在为您提供帮助, 以使您在 Tooldelta 的使用中更加轻松、顺利地享受。
+    details: 本 Wiki 旨在为您提供任何与 ToolDelta 有关的帮助, 以使您在 ToolDelta 的使用中更加轻松、顺利地享受各种插件带来的玩法的趣味。
   - title: '如何使用这个 Wiki?'
     icon: 📦
     details: 我们努力将所有的信息都整理得清晰易懂, 以便每位用户都能受益。如果您有任何反馈、建议或需要帮助, 你可以入群或提出issue进行反馈。
