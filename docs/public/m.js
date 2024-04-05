@@ -59,11 +59,6 @@ queueMicrotask(() => {
     setTimeout(
         Log.bind(console, `%c TDW-5 %c ${siteDateStatistics(new Date('2024-02-14'))}.`, 'color:white;background-color:#4f90d9', '')
         , 450)
-
-    /* setTimeout(
-        Log.bind(console, `%c 警告 %c 本 Wiki 是重构后的版本，如果您发现了任何错误的部分，可以在游戏内寻找 liuzhen932(https://zh-cn.namemc.com/profile/liuzhen932.1) 或向 Github 仓库提出 Issue
-`, 'color:white;background-color:#660099', '')
-        , 600) */
     // ToolDelta Network
     setTimeout(
         Log.bind(console, `%c ToolDelta Network-1 %c 已连接到 TD 网络!`, 'color:white;background-color:#87ceeb', '')
