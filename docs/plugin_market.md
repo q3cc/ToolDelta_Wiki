@@ -42,9 +42,10 @@ class NewPlugin(Plugin):
 
 上传之后，请务必同时更改 `plugin_market/market_tree.json` ,  按照其格式添加上自己的插件信息。
 ::: details `market_tree.json` 更改说明
-    这是一个标准的插件详情的例子
 
-    ```json
+这是一个标准的插件详情的例子
+
+```json
     "聊天栏菜单": { // 插件的名字，创建插件文件夹的时候也将使用这个名字
         "author": "SuperScript", // 插件的作者
         "version": "0.0.4", // 插件的版本
@@ -53,7 +54,8 @@ class NewPlugin(Plugin):
         "pre-plugins": {}, // 前置插件的名称与最低需求版本的键值对，都为 string
         "plugin-type": "classic"
     },
-    ```
+```
+
 :::
 
 上传内容若会对用户的设备造成损害，或会盗窃用户信息的插件，**将不予通过审核。**
