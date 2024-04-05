@@ -1,5 +1,11 @@
-# 附录: game_ctrl(GameControl/GameManager) 提供的方法
-WARNING: 以下中文参数并非实际参数, 仅作为参考
+# 附录：GameControl 提供的方法
+
+::: warn
+
+以下中文参数并非实际参数，仅作为参考
+
+:::
+
 ```python
 game_ctrl:
     .say_to(玩家选择器/玩家名: str, 消息: str) -> None: 向玩家发送Tellraw消息
