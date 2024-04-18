@@ -21,6 +21,26 @@ export default defineConfig({
   themeConfig: {
     search: {
       provider: "local",
+      options: {
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                }
+              }
+            }
+          }
+        }
+      }
     },
     // https://vitepress.dev/reference/default-theme-config
     logo: { src: "/logo.ico", width: 23, height: 15 },
@@ -137,5 +157,7 @@ export default defineConfig({
     darkModeSwitchLabel: "主题",
     lightModeSwitchTitle: "切换到浅色模式",
     darkModeSwitchTitle: "切换到深色模式",
+    outline: 4,
+    outlineTitle: "本页内容"
   },
 });
