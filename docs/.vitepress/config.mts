@@ -26,11 +26,18 @@ export default defineConfig({
     logo: { src: "/logo.ico", width: 23, height: 15 },
     editLink: {
       pattern:
-        "https://github.com/ToolDelta/ToolDelta_wiki/tree/main/docs/:path",
+        "https://github.com/ToolDelta/Wiki/tree/main/docs/:path",
     },
     nav: [
-      { text: "主界面   ", link: "/" },
+      { text: "主界面", link: "/" },
       { text: "百科", link: "/intro" },
+      {
+        text: "API 参考",
+        items: [
+          { text: "类式插件", link: "/api/classic-plugin" },
+          { text: "注入式插件", link: "/api/injected-plugin" },
+        ],
+      },
       {
         text: "关于",
         items: [
@@ -82,9 +89,6 @@ export default defineConfig({
                 link: "/class-plugin/add-on/config检测样式",
               },
             ],
-          },
-          {
-            text: "# 敬请期待 #",
           },
         ],
       },
