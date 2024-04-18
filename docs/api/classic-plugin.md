@@ -2,9 +2,7 @@
 
 > 详细的接口参考
 
-## ToolDelta 类式插件
-
-### _class_ Plugin
+## _class_ Plugin
 
 **插件信息主类**
 
@@ -13,7 +11,7 @@
 - `description`: 插件简介
 - `version`: 插件版本
 
-#### _def_ data_path()
+### _def_ data_path()
 
 **获取数据路径**
 
@@ -24,14 +22,14 @@
 - 返回
   - (str): 插件数据文件路径
 
-### _def_ read_plugins()
+## _def_ read_plugins()
 
 **读取插件**
 
 - 参数
   - plugin_grp (PluginGroup): 插件组
 
-### _def_ load_plugin()
+## _def_ load_plugin()
 
 **加载插件**
 
