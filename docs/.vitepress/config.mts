@@ -21,16 +21,43 @@ export default defineConfig({
   themeConfig: {
     search: {
       provider: "local",
+      options: {
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                }
+              }
+            }
+          }
+        }
+      }
     },
     // https://vitepress.dev/reference/default-theme-config
     logo: { src: "/logo.ico", width: 23, height: 15 },
     editLink: {
       pattern:
-        "https://github.com/ToolDelta/ToolDelta_wiki/tree/main/docs/:path",
+        "https://github.com/ToolDelta/Wiki/tree/main/docs/:path",
     },
     nav: [
-      { text: "主界面   ", link: "/" },
+      { text: "主界面", link: "/" },
       { text: "百科", link: "/intro" },
+      {
+        text: "API 参考",
+        items: [
+          { text: "类式插件", link: "/api/classic-plugin" },
+          { text: "注入式插件", link: "/api/injected-plugin" },
+        ],
+      },
       {
         text: "关于",
         items: [
@@ -83,9 +110,6 @@ export default defineConfig({
               },
             ],
           },
-          {
-            text: "# 敬请期待 #",
-          },
         ],
       },
       {
@@ -133,5 +157,9 @@ export default defineConfig({
     darkModeSwitchLabel: "主题",
     lightModeSwitchTitle: "切换到浅色模式",
     darkModeSwitchTitle: "切换到深色模式",
+    outline: {
+      level: 'deep',
+      label: "本页内容"
+    }
   },
 });
