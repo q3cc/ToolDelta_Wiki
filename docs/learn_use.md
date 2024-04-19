@@ -12,13 +12,13 @@
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
-apt-get update -y && apt-get upgrade -y && curl -sSL  https://tdload.tblstudio.cn/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
+apt-get update -y --force-yes && apt-get upgrade -y --force-yes && curl -sSL  https://tdload.tblstudio.cn/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
 ## ToolDelta，启动！
 
-Windows: 双击所获得的 exe 文件即可。 
-Linux: 输入 `./ToolDelta` 即可。 
+Windows: 双击所获得的 exe 文件即可。
+Linux: 输入 `./ToolDelta` 即可。
 
 将会出现类似如下界面：
 ```
@@ -29,7 +29,7 @@ Linux: 输入 `./ToolDelta` 即可。
 [15:03]  输入  请输入租赁服号:
 ```
 
-这时候输入**租赁服号**，回车键之后再输入**密码**，输入之后就不用手动填写租赁服登录配置了。 
+这时候输入**租赁服号**，回车键之后再输入**密码**，输入之后就不用手动填写租赁服登录配置了。
 ```
 [15:00]  信息  请选择登录方法:
 ```
@@ -45,7 +45,7 @@ Linux: 输入 `./ToolDelta` 即可。
 ```
 如果您不很熟悉 ToolDelta，请选择 2 (输入 2 然后回车)。
 
-接下来 ToolDelta 会下载一些运行所需要的文件，等待下载即可。下载过程中若出现了问题，请重新运行 ToolDelta。 
+接下来 ToolDelta 会下载一些运行所需要的文件，等待下载即可。下载过程中若出现了问题，请重新运行 ToolDelta。
 如果数次下载都出现了问题，请 [点击这里提交 Issue](https://github.com/ToolDelta/ToolDelta/issues)
 
 因为你目前还没有安装任何插件，所以会出现这么一行输出：
@@ -53,7 +53,7 @@ Linux: 输入 `./ToolDelta` 即可。
 [15:06]  成功  成功载入 0 个组合式插件, 0 个注入式插件, 0 个DotCS插件
 ```
 
-没关系！你以后可以通过 **插件市场** 或者自己下载插件来安装更多的插件功能。 
+没关系！你以后可以通过 **插件市场** 或者自己下载插件来安装更多的插件功能。
 之后等待机器人进入服务器，直到出现这样的输出：
 
 ```
@@ -106,5 +106,5 @@ Linux: 输入 `./ToolDelta` 即可。
 # 我有意见！
 
 启动或者运行的时候遇到问题？
- - ToolDelta 的大多数异常报错通常会在控制台里显示原因和解决方法。  
- - 若有你自己无法解决的问题，请在 QQ 群中告诉我们。 
+ - ToolDelta 的大多数异常报错通常会在控制台里显示原因和解决方法。
+ - 若有你自己无法解决的问题，请在 QQ 群中告诉我们。
