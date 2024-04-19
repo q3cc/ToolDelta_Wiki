@@ -120,8 +120,7 @@ class Cursor {
 function checkDesktop() {
     const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
     const isTablet = /iPad/i.test(navigator.userAgent)
-    const isDesktop = !isMobile && !isTablet;
-    return isDesktop;
+    return !isMobile && !isTablet;
 }
 
 let isDesktop = checkDesktop()

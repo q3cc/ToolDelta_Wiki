@@ -74,7 +74,7 @@ export default defineConfig({
       {
         text: "使用教程",
         items: [
-          { text: "📖 使用教程", link: "/learn-use" },
+          { text: "📖 使用教程", link: "/learn_use" },
           { text: "🧊 插件市场", link: "/plugin_market" },
         ],
       },
