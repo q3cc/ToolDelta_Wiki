@@ -6,7 +6,7 @@
 
 ## 下载 ToolDelta
 
-| [Windows 用户点我](https://tdload.tblstudio.cn/github.com/ToolDelta/ToolDelta/releases/download/0.5.4/ToolDelta-windows.exe) | [Linux 用户点我](https://tdload.tblstudio.cn/github.com/ToolDelta/ToolDelta/releases/download/0.5.4/ToolDelta-linux) |
+| [Windows 用户点我](https://tdload.tblstudio.cn/github.com/ToolDelta/ToolDelta/releases/download/0.5.9/ToolDelta-windows.exe) | [Linux 用户点我](https://tdload.tblstudio.cn/github.com/ToolDelta/ToolDelta/releases/download/0.5.9/ToolDelta-linux) |
 | -- | -- |
 
 安卓手机用户请使用 Termux 运行这段命令：
@@ -24,7 +24,7 @@ Linux: 输入 `./ToolDelta` 即可。
 ```
 [15:00]  加载  ToolDelta 正在启动..
 [15:00]  加载  ToolDelta - Panel Embed By SuperScript
-[15:00]  加载  ToolDelta v 0.5.4
+[15:00]  加载  ToolDelta v 0.5.9
 [15:00]  加载  ToolDelta - Panel 已启动
 [15:03]  输入  请输入租赁服号:
 ```
