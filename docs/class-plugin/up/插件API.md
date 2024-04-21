@@ -91,8 +91,6 @@ class NewPluginAPI(Plugin, PluginAPI):
         print("机器人进入游戏了")
 ...
 ```
-
-API 的使用也写好了！
-
-当然，对 `NewPluginAPI` 的定义 和对其的使用 (API 获取) 可以在两个不同的插件文件内进行，
-前者就相当于为后者提供了一个前置库。
+这样你就成功地使用了其他插件API提供的方法了：`BroadCast`！
+当然, 对 `NewPluginAPI` 的定义 和对其的使用(API获取) 可以在两个不同的插件文件内进行,
+前者就相当于为后者提供了一个前置库.
