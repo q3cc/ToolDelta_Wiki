@@ -86,11 +86,17 @@ export default defineConfig({
           {
             text: "进阶",
             items: [
-              { text: "插件API", link: "/class-plugin/up/插件API" },
+              { 
+                text: "插件API", link: "/class-plugin/up/插件API" 
+              },         
               {
-                text: "Builtins 与 Config 的方法",
-                link: "/class-plugin/up/Builtins 与 Config 的方法",
+                text: "cfg内置库接",
+                link: "/class-plugin/up/cfg内置库接口",
               },
+              {
+                text: "util便捷函数",
+                link: "/class-plugin/up/util便捷函数",
+              }             
             ],
           },
           {
