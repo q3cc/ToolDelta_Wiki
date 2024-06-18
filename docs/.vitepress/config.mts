@@ -79,7 +79,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "公用开发接口",
+        text: "✨ 公用开发接口",
         items: [
           { text: "基本接口方法", link: "/api/basic-apis" },
           { text: "晋阶便捷接口方法", link: "/api/advanced-apis" },
