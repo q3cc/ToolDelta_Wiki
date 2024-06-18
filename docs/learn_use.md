@@ -20,6 +20,11 @@ apt-get update -y --force-yes && apt-get upgrade -y --force-yes && curl -sSL  ht
 Windows: 双击所获得的 exe 文件即可。
 Linux: 输入 `./ToolDelta` 即可。
 
+::: warning
+以下的部分教程由于 ToolDelta 更新，未能及时更改，请以实际情况为准。
+:::
+
+
 将会出现类似如下界面：
 ```
 [15:00]  加载  ToolDelta 正在启动..
