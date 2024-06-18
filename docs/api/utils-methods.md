@@ -32,24 +32,33 @@ from tooldelta.utils import Utils
 
 用法如下：
 ```python
->>> print(Utils.simple_fmt( {"[arg1]": "Super", "[arg2]": 2}, "i am [arg1] and i'm [arg2] yrs old"))
+>>> print(
+    Utils.simple_fmt(
+        {
+            "[arg1]": "Super",
+            "[arg2]": 2
+        },
+        "i am [arg1] and i'm [arg2] yrs old"
+    )
+)
 "i am Super and i'm 2 yrs old"
 ```
 
-> @thread_func
+> @thread_func(usage: str)
 
 作为装饰器使用， 放在任意堵塞函数上，使函数成为线程函数，在被执行的时候自身作为一个新线程启动，不会阻塞代码的继续运行。
+- 参数 `usage`： 此线程用途
 
 用法如下：
 ```python
-@Utils.thread_func
-def say_hi(name):
+@Utils.thread_func("一个简单的方法") # [!code focus]
+def say_hi(name): # [!code focus]
     for i in range(5):
         print(f"hi {name}")
         time.sleep(1)
 
-say_hi("Super")
-say_hi("Wling")
+say_hi("Super") # [!code focus]
+say_hi("Wling") # [!code focus]
 ```
 
 > try_int

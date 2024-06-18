@@ -26,8 +26,8 @@
         - 配置文件合法性检测失败(值的类型和模板类型不同引发)： `Config.ConfigError`
 
 ## 配置文件模版标准样式
-配置文件的模版标准样式就是键值对的值部分改成了类型， 以便检测键值结构相同的配置文件， 例如这样：
-这是一个示范配置文件的 Python dict 形式：
+配置文件的模版标准样式就是**键值对的值部分改成了类型**， 以便检测**键值结构相同**的配置文件， 例如这样，
+这是一个示范配置文件的 Python dict 形式（它是能通过检测的）：
 ```
 config = {
     "name": "Stelle",
@@ -39,11 +39,11 @@ config = {
 ```
 config_std = {
     "name": str,
-    "age": Config.PInt,
+    "age": Cfg.PInt,
     "is_human": bool
 }
 ```
-我们通过 `config_std` 来指定了配置文件中 "name" 值只能是字符串，"age" 值则只能是正整数(tooldelta.cfg里内置的一种模版类型)，"is_human" 值则只能是布尔值。
+我们通过 `config_std` 来指定了配置文件中 "name" 值只能是字符串，"age" 值则只能是正整数(`Cfg.PInt`, `tooldelta.cfg` 里内置的一种模版类型)，"is_human" 值则只能是布尔值。
 除了示例里的 `Config.PInt`, 实际上能指定的值类型有以下几种：
 - `int`: 整数
 - `str`: 字符串
@@ -61,7 +61,7 @@ config_std = {
 - `Config.JsonList(types, len_limit = -1)`: 表示一个列表。`types`指定了列表各项的`类型`，`lem_limit`指定了列表的固定长度，-1为不限制长度。
 - `Config.AnyKeyValue(val_type)`: 表示一个可以是任意名称的键名, `val_type`指定了其值的类型
 
-混合使用的案例：
+::: details 混合使用所有标准检测类型的案例
 ```python
 default_cfg = {
     "多类型": "Hi!",
@@ -104,4 +104,6 @@ Config.check_auto(std_cfg_model, default_cfg)
 # 有报错会在此方法内引发, 通常是通俗易懂的中文提示
 # 以上的示例模板检测不会产生问题。
 ```
+:::
+
 如果你实在懒得写`配置文件标准模版检查样式`， 使用 `std_cfg_model = Config.auto_to_std(default_cfg)` 也可以，但是智能应用于简单的配置文件类型（不支持任意键名、非必要键值对等）
