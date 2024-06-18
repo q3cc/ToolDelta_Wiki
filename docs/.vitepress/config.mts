@@ -79,43 +79,19 @@ export default defineConfig({
         ],
       },
       {
-        text: "✨ 组合式插件开发指南",
+        text: "公用开发接口",
         items: [
-          { text: "添加一个插件文件", link: "/class-plugin/创建插件" },
-          { text: "方法和接口", link: "/class-plugin/方法和接口" },
-          {
-            text: "进阶",
-            items: [
-              { 
-                text: "插件API", link: "/class-plugin/up/插件API" 
-              },         
-              {
-                text: "cfg内置库接",
-                link: "/class-plugin/up/cfg内置库接口",
-              },
-              {
-                text: "util便捷函数",
-                link: "/class-plugin/up/util便捷函数",
-              }             
-            ],
-          },
-          {
-            text: "附录",
-            items: [
-              {
-                text: "虚拟JSON文件系统",
-                link: "/class-plugin/add-on/虚拟JSON文件系统",
-              },
-              {
-                text: "game_ctrl 的方法",
-                link: "/class-plugin/add-on/game_ctrl",
-              },
-              {
-                text: "config检测样式",
-                link: "/class-plugin/add-on/config检测样式",
-              },
-            ],
-          },
+          { text: "基本接口方法", link: "/api/basic-apis" },
+          { text: "晋阶便捷接口方法", link: "/api/advanced-apis" },
+          { text: "配置文件读取方法", link: "/api/cfg-use" }
+        ]
+      },
+      {
+        text: "✨ 类式插件开发指南",
+        items: [
+          { text: "创建一个插件文件", link: "/class-plugin/创建插件" },
+          { text: "编写插件主体", link: "/class-plugin/插件主体" },
+          { text: "创建一个API插件", link: "/class-plugin/插件API" },
         ],
       },
       {

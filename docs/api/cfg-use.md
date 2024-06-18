@@ -1,4 +1,6 @@
-# 附录：Cfg 内置库方法
+# 附录：便捷地读取插件配置文件
+
+> 使用此方法优雅方便地读取用户的插件配置文件！
 
 如果你的插件想便捷的读取用户的插件配置文件和检测配置文件的完整性和合法性， 你可以使用 tooldelta.Config 内置配置文件库的 Cfg 类中的一些方法。
 
@@ -6,7 +8,7 @@
     获取配置文件内容与版本， 同时检测配置文件合法性。
     - 参数：
         - `pluginName (str)`： 插件名字, 配置文件的名称会以此名作为文件名
-        - `standardType (Any)`： 作为模板的标准样式, 下面会进行详细讲解。 若填{}则不会对插件配置文件做任何检查。
+        - `standardType (Any)`： 作为模板的标准样式, [下面](1)会进行详细讲解。 若填{}则不会对插件配置文件做任何检查。
         - `default (Any)`： 默认配置文件内容。通常为 dict。
         - `default_vers (tuple[int, int, int])`： 默认配置文件的默认版本，像这样：(0, 0, 1)
     - 返回：
@@ -58,6 +60,7 @@ config_std = {
 - `Config.NNNumber`: 非负数
 - `Config.JsonList(types, len_limit = -1)`: 表示一个列表。`types`指定了列表各项的`类型`，`lem_limit`指定了列表的固定长度，-1为不限制长度。
 - `Config.AnyKeyValue(val_type)`: 表示一个可以是任意名称的键名, `val_type`指定了其值的类型
+
 混合使用的案例：
 ```python
 default_cfg = {
