@@ -32,8 +32,6 @@ frame.add_console_menu_trigger(
 - `usage`: 用途介绍
 - `cb`: 触发词触发时的回调，参数是触发词参数的列表，返回 True 代表拦截触发词不让其继续触发其他菜单项，什么都不返回/返回 None 代表让其继续触发其他菜单触发词。
 
-:::
-
 ## GameControl 提供的接口方法
 
 > 注：此处之提供与游戏交互的最基本的方法。
@@ -105,4 +103,3 @@ class MyPlugin(Plugin):
 > game_ctrl.player_actionbar
   - 向玩家显示行动栏消息
   - 参数同上
-
