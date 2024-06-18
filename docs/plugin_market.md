@@ -6,13 +6,14 @@
 
 ## 为什么选择插件市场？
 
-- 共享 ToolDelta 插件
-- 便捷的安装和使用
-- 你可以在此发布和分享你所制作的 ToolDelta 插件
+- **共享** ToolDelta 插件
+- **便捷**的安装和使用
+- 你可以在此**发布和分享**你所制作的 ToolDelta 插件
 
 ::: info
 
-我们无法保证所有插件的安全性，请自行检查部分插件有无恶意行为。
+- 上传到官方的插件市场都已经过审核，不会对用户的设备和私有信息造成损害。
+- 对于非官方插件市场，我们无法保证所有插件的安全性，请自行检查部分插件有无恶意行为。
 
 :::
 
@@ -40,10 +41,10 @@ class NewPlugin(Plugin):
     version = (int, int, int) # e.g. (0, 0, 1)
 ```
 
-上传之后，请务必同时更改 `plugin_market/market_tree.json` ,  按照其格式添加上自己的插件信息。
-::: details `market_tree.json` 更改说明
+上传之后，请务必同时更改 `plugin_market/market_tree.json` ,  按照其格式添加上自己的插件信息，如下：
+::: details `market_tree.json` 编写说明
 
-这是一个标准的插件详情的例子
+这是一个标准的插件详情数据文件的例子
 
 ```json
     "聊天栏菜单": { // 插件的名字，创建插件文件夹的时候也将使用这个名字
@@ -52,7 +53,8 @@ class NewPlugin(Plugin):
         "description": "所有使用到聊天栏菜单的组件的前置组件", // 插件的简介 (功能摘要)
         "limit_launcher": null, // 限制插件只能在哪种启动器框架运行，通用即 null
         "pre-plugins": {}, // 前置插件的名称与最低需求版本的键值对，都为 string
-        "plugin-type": "classic"
+        "plugin-type": "classic", // 插件的类别, 类式插件为 classic，注入式为 injected
+        "plugin-id": "ChatbarMenu" // 插件ID，可以任意起不重复的名，但是之后都不能再改动，是插件唯一识别ID
     },
 ```
 
