@@ -11,6 +11,7 @@ export default defineConfig({
     ["link", { rel: "icon", href: "/logo.ico" }],
     ["script", { async: "", src: "/m.js" }],
     ["script", { async: "true", src: "/cursor.js" }],
+    ["script", { async: "true", src: "/sfx.js" }],
   ],
   markdown: {
     lineNumbers: true,
