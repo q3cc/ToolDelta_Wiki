@@ -5,7 +5,7 @@ function play_sfx_intro() {
         aud.loop = false
         alert("ok: test 6")
     } catch (e) {
-        alert(e)
+        alert("exc crashed: " + e)
     }
 }
 
