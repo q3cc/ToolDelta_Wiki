@@ -2,17 +2,16 @@
 
 > 详细的接口介绍
 
-## 前言
-
-我们刚刚通过 `__init__` 方法来获取到了一个 `Frame` 对象。我们还用了 `game_ctrl = frame.get_game_control()` 获得了一个 `GameControl` 对象，ToolDelta 的主要接口都集中在这两个对象上。
 
 ## Frame 对象
 
 这个对象是 ToolDelta 的主框架类，里面有和 ToolDelta 主系统数据相关的一些内容。
 
+获取方法: `from tooldelta.starter import frame`
+
 - **获取目前的租赁服号码** `frame.serverNumber: str`
 - **获取目前的租赁服密码** `frame.serverPassword: str`
-- **获取目前有效的游戏启动器框架** `frame.launcher`
+- **获取目前有效的游戏启动器框架实例** `frame.launcher`
 
 ::: details 示例：添加一个控制台菜单触发词
 
