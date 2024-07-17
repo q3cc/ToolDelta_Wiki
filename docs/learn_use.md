@@ -12,7 +12,7 @@
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
-apt-get update -y --force-yes && apt-get upgrade -y --force-yes && curl -sSL  https://tdload.tblstudio.cn/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
+curl -sSL https://tdload.tblstudio.cn/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
 ## ToolDelta，启动！
