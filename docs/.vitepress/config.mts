@@ -80,12 +80,22 @@ export default defineConfig({
           { text: "编写插件主体", link: "/class-plugin/插件主体" },
           { text: "创建一个API插件", link: "/class-plugin/插件API" },
           {
-            text: "示例插件", items: [
-              { text: "插件主类的特殊方法", link: "/class-plugin/examples/插件主类方法" },
-              { text: "在插件内使用API", link: "/class-plugin/examples/使用API的插件" },
-              { text: "向其他插件提供API", link: "/class-plugin/examples/提供API的插件" },
-            ]
-          }
+            text: "示例插件",
+            items: [
+              {
+                text: "插件主类的特殊方法",
+                link: "/class-plugin/examples/插件主类方法",
+              },
+              {
+                text: "在插件内使用API",
+                link: "/class-plugin/examples/使用API的插件",
+              },
+              {
+                text: "向其他插件提供API",
+                link: "/class-plugin/examples/提供API的插件",
+              },
+            ],
+          },
         ],
       },
       {
@@ -100,17 +110,8 @@ export default defineConfig({
             link: "/injected-plugin/编写教程",
           },
           {
-            text: "方法和接口",
-            items: [
-              {
-                text: "事件获取API",
-                link: "/injected-plugin/事件获取",
-              },
-              {
-                text: "命令收发以及更多接口API",
-                link: "/injected-plugin/命令收发与接口",
-              },
-            ],
+            text: "事件获取API",
+            link: "/injected-plugin/事件获取",
           },
         ],
       },
@@ -124,12 +125,11 @@ export default defineConfig({
               { text: "入门ZBasic", link: "/extras/Z-Basic/入门ZBasic" },
               { text: "指令语句", link: "/extras/Z-Basic/所有指令语句" },
               { text: "内置函数", link: "/extras/Z-Basic/内置函数" },
-              { text: "内置函数", link: "/extras/Z-Basic/内置函数" },
               { text: "扩展函数&语法", link: "/extras/Z-Basic/扩展功能" },
-            ]
-          }
-        ]
-      }
+            ],
+          },
+        ],
+      },
     ],
 
     socialLinks: [
