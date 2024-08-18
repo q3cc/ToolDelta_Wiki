@@ -12,7 +12,7 @@
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
-curl -sSL https://tdload.whiteleaf.cn/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
+curl -sSL https://github.dqyt.online/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
 ## ToolDelta，启动！
