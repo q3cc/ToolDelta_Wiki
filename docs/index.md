@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 开始教程罢~🤔
-      link: /intro
+      link: /user/
     - theme: alt
       text: 加入交流群
       link: https://qm.qq.com/q/dzwOUecEvu
