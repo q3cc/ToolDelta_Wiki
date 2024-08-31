@@ -46,35 +46,24 @@ export default defineConfig({
         editLink: {
             pattern: "https://github.com/ToolDelta/Wiki/tree/main/docs/:path",
         },
-        nav: [{
-                text: "主界面",
-                link: "/"
-            },
+        nav: [
             {
-                text: "百科",
-                link: "/intro"
+                text: "使用",
+                link: "/use"
             },
             {
                 text: "API 参考",
-                items: [{
-                        text: "类式插件",
-                        link: "/api/classic-plugin"
-                    },
-                    {
-                        text: "注入式插件",
-                        link: "/api/injected-plugin"
-                    },
-                ],
+                link : "/api"
             },
             {
                 text: "关于",
                 items: [{
                         text: "关于我们",
-                        link: "/about/intro"
+                        link: "/intro"
                     },
                     {
                         text: "联系我们",
-                        link: "/about/contact"
+                        link: "/contact"
                     },
                 ],
             },
