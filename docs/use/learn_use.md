@@ -6,13 +6,13 @@
 
 ## 下载 ToolDelta
 
-| [Windows 用户点我](https://tdload.whiteleaf.cn/github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://tdload.whiteleaf.cn/github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
+| [Windows 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
 | -- | -- |
 
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
-curl -sSL https://github.dqyt.online/raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
+curl -sSL https://github.dqyt.online/https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
 ## ToolDelta，启动！
