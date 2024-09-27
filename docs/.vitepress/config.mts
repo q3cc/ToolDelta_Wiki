@@ -70,7 +70,7 @@ export default defineConfig({
         ],
 
         sidebar: {
-            "/user": [{
+            "/use": [{
                     text: "👋 欢迎来到 ToolDelta Wiki",
                     link: "/intro"
                 },
