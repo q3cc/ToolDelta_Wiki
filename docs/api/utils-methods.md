@@ -10,7 +10,7 @@ from tooldelta.utils import Utils
 
 #### 基本方法
 
-> createThread(func, args, usage, **kwargs)
+> createThread
 
 创建一个特殊线程，这个线程受ToolDelta主框架控制和收集。另外，它还能被停止。
 - 参数：
@@ -20,15 +20,6 @@ from tooldelta.utils import Utils
 `**kwargs` 线程函数的关键字参数，默认为空
 - 返回：`ToolDeltaThread`
 可以使用 my_thread.stop() 以停止这个线程的执行。
-示例：
-```python
-def lazy():
-    while 1:
-        time.sleep(1)
-        # sleep() 千万别太久！要不然 stop() 无法正常停止线程！
-
-c = createThread(lazy)
-```
 
 > simple_fmt
 
@@ -39,7 +30,7 @@ c = createThread(lazy)
 - 返回：
 格式后的字符串
 
-示例：
+用法如下：
 ```python
 >>> print(
     Utils.simple_fmt(
@@ -58,7 +49,7 @@ c = createThread(lazy)
 作为装饰器使用， 放在任意堵塞函数上，使函数成为线程函数，在被执行的时候自身作为一个新线程启动，不会阻塞代码的继续运行。
 - 参数 `usage`： 此线程用途
 
-示例：
+用法如下：
 ```python
 @Utils.thread_func("一个简单的方法") # [!code focus]
 def say_hi(name): # [!code focus]
@@ -67,6 +58,7 @@ def say_hi(name): # [!code focus]
         time.sleep(1)
 
 say_hi("Super") # [!code focus]
+say_hi("Wling") # [!code focus]
 ```
 
 > try_int
@@ -114,7 +106,7 @@ say_hi("Super") # [!code focus]
 - 报错：
 `ValueError` json虚拟路径未载入，无法写入
 
-> read_as_tmp(path, needFileExists, timeout)
+> read_as_tmp
 
 对虚拟路径中的json进行读取。如果不存在，则尝试从磁盘打开对应路径的json文件。在限定时间后自动存盘卸载。
 - 参数：
@@ -122,7 +114,7 @@ say_hi("Super") # [!code focus]
 `needFileExists` 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False
 `timeout: int` 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
 
-> write_as_tmp(path, obj, needFileExists, timeout)
+> write_as_tmp
 
 对虚拟路径中的json进行覆写。如果不存在，则尝试从磁盘打开对应路径的json文件。在限定时间后自动存盘卸载。
 - 参数：
@@ -131,14 +123,3 @@ say_hi("Super") # [!code focus]
 `needFileExists` 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False
 `timeout: int` 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
 
-综合示例：
-```python
-path = "database/db.json"
-TMPJson.loadPathJson(path)
-# read 和 write 都非常迅速
-g = TMPJson.read(path)
-...
-TMPJson.write(path, {...})
-...
-TMPJson.unloadPathJson(path)
-```

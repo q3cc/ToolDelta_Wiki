@@ -1,138 +1,120 @@
-## game_utils 模块
+# tooldelta.game_utils
 
 游戏交互实用方法
-导入方法：
-```python
-from tooldelta import game_utils
-# 查看内置方法
-print(dir(game_utils))
-```
 
-- **getTarget(sth, timeout=5)**
+## _def_ `getTarget(sth, timeout=5)` {#getTarget}
 
-  - **说明：** 获取符合目标选择器实体的列表
+- **说明：** 获取符合目标选择器实体的列表
 
-  - **参数**
+- **参数**
 
-    - `sth` (str): 目标选择器
+  - `sth` (str): 目标选择器
 
-    - `timeout` (int): 超时时间，默认为 5 秒
+  - `timeout` (int): 超时时间，默认为 5 秒
 
-  - **返回**
+- **返回**
 
-    - list （玩家名列表， 包括机器人在内）
+  - list
 
-  - **异常**
+- **异常**
 
-    - ValueError: 指令返回超时，或者无法获取目标
+  - ValueError: 指令返回超时，或者无法获取目标
 
-  - **示例**
-    ```python
-    allplayers_creative = getTarget("@a[m=1]")
-    ```
+## _def_ `getPos(target, timeout=5)` {#getPos}
 
-- **getPos(target, timeout=5)**
+- **说明：** 获取目标玩家的详细位置信息
 
-  - **说明：** 获取目标玩家的详细位置信息
+- **参数**
 
-  - **参数**
+  - `target` (str)
 
-    - `target` (str)
+  - `timeout` (float): 超时时间（秒）。默认为 5 秒
 
-    - `timeout` (float): 超时时间（秒）。默认为 5 秒
+  - `targetNameToGet`: 目标玩家的名称
 
-    - `targetNameToGet`: 目标玩家的名称
+- **返回**
 
-  - **返回**
+  - dict
 
-    - dict
+- **异常**
 
-  - **异常**
+  - ValueError: 当目标玩家不存在时抛出该异常
 
-    - ValueError: 当目标玩家不存在时抛出该异常
+  - ValueError: 当获取位置信息失败时抛出该异常
 
-    - ValueError: 当获取位置信息失败时抛出该异常
+  - AttributeError: 当获取玩家 UUID 失败时抛出该异常
 
-    - AttributeError: 当获取玩家 UUID 失败时抛出该异常
+## _def_ `getItem(target, itemName, itemSpecialID=-1)` {#getItem}
 
-- **getItem(target, itemName, itemSpecialID=-1)**
+- **说明：** 获取玩家背包内指定的物品的数量
 
-  - **说明：** 获取玩家背包内指定的物品的数量
+- **参数**
 
-  - **参数**
+  - `target` (str)
 
-    - `target` (str)
+  - `itemName` (str): 物品 ID
 
-    - `itemName` (str): 物品 ID
+  - `itemSpecialID` (int): 物品特殊值，默认值 -1
 
-    - `itemSpecialID` (int): 物品特殊值，默认值 -1
+  - `targetName` (str): 玩家选择器 / 玩家名
 
-    - `targetName` (str): 玩家选择器 / 玩家名
+- **返回**
 
-  - **返回**
+  - int
 
-    - int
+## _def_ `getPosXYZ(player, timeout=30)` {#getPosXYZ}
 
-- **getPosXYZ(player, timeout=30)**
+- **说明：** 获取玩家的简略坐标值，并以坐标三元元组返回
 
-  - **说明：** 获取玩家的简略坐标值，并以坐标三元元组返回
+- **参数**
 
-  - **参数**
+  - `player` (str): 玩家名
 
-    - `player` (str): 玩家名
+  - `timeout` (int): 最长超时时间
 
-    - `timeout` (int): 最长超时时间
+- **返回**
 
-  - **返回**
+  - tuple[float, float, float]: tuple[float, float, float]
 
-    - tuple[float, float, float]
+## _def_ `getMultiScore(scoreboardNameToGet, targetNameToGet)` {#getMultiScore}
 
-  - **示例**
-    ```python
-    x, y, z = getPosXYZ("Super_AFK")
-    ```
+- **说明：** 获取单个或多个计分板分数项
 
+- **参数**
 
+  - `scoreboardNameToGet` (str): 计分板名
 
-- **getMultiScore(scoreboardNameToGet, targetNameToGet)**
+  - `targetNameToGet` (str): 获取分数的对象/目标选择器
 
-  - **说明：** 获取单个或多个计分板分数项
+- **返回**
 
-  - **参数**
+  - int | dict: 分数：int
 
-    - `scoreboardNameToGet` (str): 计分板名
+- **异常**
 
-    - `targetNameToGet` (str): 获取分数的对象/目标选择器
+  - ValueError: 无法获取分数
 
-  - **返回**
+## _def_ `getScore(scb_name, target, timeout=30)` {#getScore}
 
-    - int | dict: 分数：int
+- **说明：** 获取计分板对应分数
 
-  - **异常**
+- **参数**
 
-    - ValueError: 无法获取分数
+  - `scb_name` (str): 计分板名
 
-- **getScore(scb_name, target, timeout=30)**
+  - `target` (str): 目标选择器
 
-  - **说明：** 获取计分板对应分数
+  - `timeout` (float): 超时时间
 
-  - **参数**
+- **返回**
 
-    - `scb_name` (str): 计分板名
+  - int: 计分板分数
 
-    - `target` (str): 目标选择器
+- **异常**
 
-    - `timeout` (float): 超时时间
+  - ValueError: 计分板错误
 
-  - **返回**
-
-    - int: 计分板分数
-
-  - **异常**
-
-    - ValueError: 计分板错误
-
-- **isCmdSuccess(cmd, timeout=30)**
+## _def_ `isCmdSuccess(cmd, timeout=30)` {#isCmdSuccess}
 
 - **说明：** 获取命令执行成功与否的状态
 
@@ -144,11 +126,21 @@ print(dir(game_utils))
 
 - **返回**
 
-  - 命令执行是否成功：bool
+  - untyped: 命令执行是否成功：bool
 
----
+## _def_ `take_item_out_item_frame(pos)` {#take-item-out-item-frame}
 
-### 以下为 plugin_load.injected_plugins.movent 提供的方法 (by wling)
+- **说明：** 从物品展示框取出物品
+
+- **参数**
+
+  - `pos` (tuple[int, int, int])
+
+  - `position`: 物品展示框的坐标 (x, y, z)
+
+- **返回**
+
+  - None: None
 
 ## _def_ `sendcmd(cmd, waitForResp=False, timeout=30)` {#sendcmd}
 

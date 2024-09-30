@@ -3,24 +3,15 @@
 > 详细的接口介绍
 
 
-## ToolDelta 对象
+## Frame 对象
 
 这个对象是 ToolDelta 的主框架类，里面有和 ToolDelta 主系统数据相关的一些内容。
 
-获取方法: 
-```python
-from tooldelta.starter import tooldelta
-# 如果这是类式插件：
-@plugins.add_plugin
-class SomePlugin(Plugin):
-    ...
-    def on_inject(self):
-        print()
-```
+获取方法: `from tooldelta.starter import frame`
 
-- **目前的租赁服号码** `tooldelta.serverNumber: str`
-- **目前的租赁服密码** `frame.serverPassword: str`
-- **目前有效的游戏启动器框架实例** `frame.launcher`
+- **获取目前的租赁服号码** `frame.serverNumber: str`
+- **获取目前的租赁服密码** `frame.serverPassword: str`
+- **获取目前有效的游戏启动器框架实例** `frame.launcher`
 
 ::: details 示例：添加一个控制台菜单触发词
 

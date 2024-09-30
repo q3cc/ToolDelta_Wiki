@@ -6,7 +6,7 @@
 
 ## 下载 ToolDelta
 
-| [Windows 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
+    | [Windows 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
 | -- | -- |
 
 安卓手机用户请使用 Termux 运行这段命令：
@@ -57,7 +57,7 @@ Linux: 输入 `./ToolDelta` 即可。
 接下来，如果你不想手动获取 Token， 照着提示做，输入账号密码即可（账号密码仅用于获取Token）。
 
 之后 ToolDelta 会下载一些运行所需要的文件，等待下载即可。下载过程中若出现了问题，请重新运行 ToolDelta。
-如果数次下载都出现了问题，请 [点击这里提交 Issue](https://github.com/ToolDelta/ToolDelta/issues)
+如果数次下载都出现了问题，请 [点击这里提交 Issue](https://github.com/ToolDelta-Basic/ToolDelta/issues)
 
 因为你目前还没有安装任何插件，所以会出现这么一行输出：
 ```
@@ -74,7 +74,7 @@ Linux: 输入 `./ToolDelta` 即可。
 ```
 恭喜你，你的机器人成功进服并运行起来了！现在，你可以在控制台输入 `help` 看看你有什么可用的命令提示 (鉴于你还没有安装聊天栏菜单相关的插件，所以在**游戏**里输入 `.help`什么都不会发生)
 
-## Plug-In——！ {#安装插件}
+## 插插件——！ {#安装插件}
 
 然而，现在ToolDelta什么都干不了。我们需要一些让 ToolDelta 活跃起来的东西， 比如说插件？
 
