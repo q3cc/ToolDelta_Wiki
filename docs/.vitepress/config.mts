@@ -53,109 +53,111 @@ export default defineConfig({
             },
             {
                 text: "API 参考",
-                link : "/api"
+                link: "/api"
             },
             {
                 text: "关于",
                 items: [{
-                        text: "关于我们",
-                        link: "/intro"
-                    },
-                    {
-                        text: "联系我们",
-                        link: "/contact"
-                    },
+                    text: "关于我们",
+                    link: "/intro"
+                },
+                {
+                    text: "联系我们",
+                    link: "/contact"
+                },
                 ],
             },
         ],
 
         sidebar: {
             "/use": [{
-                    text: "👋 欢迎来到 ToolDelta Wiki",
-                    link: "/intro"
+                text: "👋 欢迎来到 ToolDelta Wiki",
+                link: "./"
+            },
+            {
+                text: "🌹 FAQ",
+                link: "./FAQ"
+            },
+            {
+                text: "📘 项目介绍",
+                link: "./jieshao"
+            },
+            {
+                text: "使用教程",
+                items: [{
+                    text: "📖 使用教程",
+                    link: "./learn_use"
                 },
                 {
-                    text: "🌹 FAQ",
-                    link: "/FAQ"
+                    text: "🧊 插件市场",
+                    link: "./plugin_market"
                 },
-                {
-                    text: "📘 项目介绍",
-                    link: "/jieshao"
-                },
-                {
-                    text: "使用教程",
-                    items: [{
-                            text: "📖 使用教程",
-                            link: "/learn_use"
-                        },
-                        {
-                            text: "🧊 插件市场",
-                            link: "/plugin_market"
-                        },
-                    ],
-                },
+                ],
+            },
+            ],
+            "/api": [
                 {
                     text: "✨ 公用开发接口",
                     items: [{
-                            text: "基本接口方法",
-                            link: "/api/basic-apis"
-                        },
-                        {
-                            text: "晋阶便捷接口方法",
-                            link: "/api/advanced-apis"
-                        },
-                        {
-                            text: "配置文件读取方法",
-                            link: "/api/cfg-use"
-                        },
+                        text: "基本接口方法",
+                        link: "/api/basic-apis"
+                    },
+                    {
+                        text: "晋阶便捷接口方法",
+                        link: "/api/advanced-apis"
+                    },
+                    {
+                        text: "配置文件读取方法",
+                        link: "/api/cfg-use"
+                    },
                     ],
                 },
                 {
                     text: "✨ 类式插件开发指南",
                     items: [{
-                            text: "创建一个插件文件",
-                            link: "/class-plugin/创建插件"
+                        text: "创建一个插件文件",
+                        link: "/api/class-plugin/创建插件"
+                    },
+                    {
+                        text: "编写插件主体",
+                        link: "/api/class-plugin/插件主体"
+                    },
+                    {
+                        text: "创建一个API插件",
+                        link: "/api/class-plugin/插件API"
+                    },
+                    {
+                        text: "示例插件",
+                        items: [{
+                            text: "插件主类的特殊方法",
+                            link: "/api/class-plugin/examples/插件主类方法",
                         },
                         {
-                            text: "编写插件主体",
-                            link: "/class-plugin/插件主体"
+                            text: "在插件内使用API",
+                            link: "/api/class-plugin/examples/使用API的插件",
                         },
                         {
-                            text: "创建一个API插件",
-                            link: "/class-plugin/插件API"
+                            text: "向其他插件提供API",
+                            link: "/api/class-plugin/examples/提供API的插件",
                         },
-                        {
-                            text: "示例插件",
-                            items: [{
-                                    text: "插件主类的特殊方法",
-                                    link: "/class-plugin/examples/插件主类方法",
-                                },
-                                {
-                                    text: "在插件内使用API",
-                                    link: "/class-plugin/examples/使用API的插件",
-                                },
-                                {
-                                    text: "向其他插件提供API",
-                                    link: "/class-plugin/examples/提供API的插件",
-                                },
-                            ],
-                        },
+                        ],
+                    },
                     ],
                 },
                 {
                     text: "✨ 注入式插件开发指南",
                     items: [{
-                            text: "添加一个插件文件",
-                            link: "/injected-plugin/创建插件",
-                        },
-                        {
-                            text: "编写教程",
-                            link: "/injected-plugin/编写教程",
-                        },
-                        {
-                            text: "事件获取API",
-                            link: "/injected-plugin/事件获取",
-                        },
+                        text: "添加一个插件文件",
+                        link: "/api/injected-plugin/创建插件",
+                    },
+                    {
+                        text: "编写教程",
+                        link: "/api/injected-plugin/编写教程",
+                    },
+                    {
+                        text: "事件获取API",
+                        link: "/api/injected-plugin/事件获取",
+                    },
                     ],
                 },
                 {
@@ -163,30 +165,29 @@ export default defineConfig({
                     items: [{
                         text: "ToolDelta中文编程",
                         items: [{
-                                text: "介绍",
-                                link: "/extras/Z-Basic/intro"
-                            },
-                            {
-                                text: "入门ZBasic",
-                                link: "/extras/Z-Basic/入门ZBasic"
-                            },
-                            {
-                                text: "指令语句",
-                                link: "/extras/Z-Basic/所有指令语句"
-                            },
-                            {
-                                text: "内置函数",
-                                link: "/extras/Z-Basic/内置函数"
-                            },
-                            {
-                                text: "扩展函数&语法",
-                                link: "/extras/Z-Basic/扩展功能"
-                            },
+                            text: "介绍",
+                            link: "/api/extras/Z-Basic/intro"
+                        },
+                        {
+                            text: "入门ZBasic",
+                            link: "/api/extras/Z-Basic/入门ZBasic"
+                        },
+                        {
+                            text: "指令语句",
+                            link: "/api/extras/Z-Basic/所有指令语句"
+                        },
+                        {
+                            text: "内置函数",
+                            link: "/api/extras/Z-Basic/内置函数"
+                        },
+                        {
+                            text: "扩展函数&语法",
+                            link: "/api/extras/Z-Basic/扩展功能"
+                        },
                         ],
-                    }, ],
-                },
-            ],
-            "/api": [{
+                    },],
+                }, 
+                {
                     text: "类式插件",
                     link: "/api/classic-plugin"
                 },
@@ -200,7 +201,7 @@ export default defineConfig({
         socialLinks: [{
             icon: "github",
             link: "https://github.com/ToolDelta/ToolDelta"
-        }, ],
+        },],
         externalLinkIcon: true, // 展示站外链接箭头 ↗
         footer: {
             message: `基于 GPL-3.0 license 许可发布 | 文档版本 ${pkg.version}`,
