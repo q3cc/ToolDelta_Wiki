@@ -12,5 +12,5 @@ pip install tooldelta
 如果想编写需求功能较多的插件， 可以开发**ToolDelta类式插件**，其使用同步模式进行开发（推荐）。  
 如果插件功能轻量较少， 可以开发**ToolDelta注入式插件**，其使用异步模式进行开发。  
 
-| [类式插件开发教程](/docs/plugin-dev/class-plugin/创建插件) | [注入式插件开发教程](/docs/plugin-dev/injected-plugin/编写教程) |
+| [类式插件开发教程](./class-plugin/创建插件) | [注入式插件开发教程](./injected-plugin/编写教程) |
 | -- | -- |
