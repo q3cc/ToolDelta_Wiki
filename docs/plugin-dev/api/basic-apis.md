@@ -60,11 +60,17 @@ class MyPlugin(Plugin):
 > game_ctrl.checkAvaliable
   - 判断是否与游戏连接，没有则直接引发ValueError
 
-> game_ctrl.sendcmd
+```python
+game_ctrl.sendcmd(
+    cmd: str,
+    waitForResp: bool = False,
+    timeout: int = 30
+)
+```
   - 执行MC指令，并指定是否返回指令执行结果
   - 参数：
-  `cmd: str` MC指令
-  `waitForResp: bool` 是否等待指令执行完成并返回执行结果，默认False
+  **cmd** (str)： MC指令
+  **waitForResp** (bool)： 是否等待指令执行完成并返回执行结果，默认False
   `timeout: int` 等待超时时间秒数，超时引发TimeoutError，默认为30
   - 返回：
   `None` 若 waitForResp 为 False

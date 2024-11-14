@@ -3,6 +3,8 @@ import {
 } from "vitepress";
 import pkg from "../../package.json";
 // https://vitepress.dev/reference/site-config
+
+
 export default defineConfig({
     lastUpdated: true,
     lang: "zh-CN",
@@ -26,8 +28,9 @@ export default defineConfig({
     ],
 
     sitemap: {
-        hostname: "https://tooldelta-wiki.tblstudio.cn",
+        hostname: "https://td-wiki.dqyt.online",
     },
+
     themeConfig: {
         search: {
             provider: "local",
@@ -44,7 +47,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         // logo: { src: "/logo.ico", width: 23, height: 15 },
         editLink: {
-            pattern: "https://github.com/ToolDelta/Wiki/tree/main/docs/:path",
+            pattern: "https://github.com/daqyt/ToolDelta-Wiki/tree/main/docs/:path",
         },
         nav: [
             {
@@ -74,30 +77,28 @@ export default defineConfig({
         ],
 
         sidebar: {
-            "/use": [{
-                text: "👋 欢迎来到 ToolDelta Wiki",
-                link: "./"
-            },
-            {
-                text: "🌹 FAQ",
-                link: "./FAQ"
-            },
-            {
-                text: "📘 项目介绍",
-                link: "./jieshao"
-            },
-            {
-                text: "使用教程",
-                items: [{
-                    text: "📖 使用教程",
-                    link: "./learn_use"
+            "/use": [
+                {
+                    text: "👋 欢迎来到 ToolDelta Wiki",
+                    link: "./"
                 },
                 {
-                    text: "🧊 插件市场",
-                    link: "./plugin_market"
+                    text: "🌹 FAQ",
+                    link: "./FAQ"
                 },
-                ],
-            },
+                {
+                    text: "使用教程",
+                    items: [
+                        {
+                            text: "📖 使用教程",
+                            link: "./learn_use"
+                        },
+                        {
+                            text: "🧊 插件市场",
+                            link: "./plugin_market"
+                        },
+                    ],
+                }
             ],
             "/api": [
                 {
@@ -119,34 +120,17 @@ export default defineConfig({
                 {
                     text: "✨ 类式插件开发指南",
                     items: [{
-                        text: "创建一个插件文件",
-                        link: "/api/class-plugin/创建插件"
+                        text: "创建插件",
+                        link: "/plugin-dev/class-plugin/创建插件"
                     },
                     {
                         text: "编写插件主体",
-                        link: "/api/class-plugin/插件主体"
+                        link: "/plugin-dev/class-plugin/插件主体"
                     },
                     {
-                        text: "创建一个API插件",
-                        link: "/api/class-plugin/插件API"
-                    },
-                    {
-                        text: "示例插件",
-                        items: [{
-                            text: "插件主类的特殊方法",
-                            link: "/api/class-plugin/examples/插件主类方法",
-                        },
-                        {
-                            text: "在插件内使用API",
-                            link: "/api/class-plugin/examples/使用API的插件",
-                        },
-                        {
-                            text: "向其他插件提供API",
-                            link: "/api/class-plugin/examples/提供API的插件",
-                        },
-                        ],
-                    },
-                    ],
+                        text: "创建一个跨插件接口",
+                        link: "/plugin-dev/class-plugin/插件API"
+                    }],
                 },
                 {
                     text: "✨ 注入式插件开发指南",
@@ -190,7 +174,7 @@ export default defineConfig({
                         },
                         ],
                     },],
-                }, 
+                },
                 {
                     text: "类式插件",
                     link: "/api/classic-plugin"
