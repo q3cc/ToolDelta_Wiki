@@ -56,7 +56,7 @@ export default defineConfig({
             },
             {
                 text: "API 参考",
-                link: "/api"
+                link: "/plugin-dev"
             },
             {
                 text: "协助文档维护",
