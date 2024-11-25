@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 开始教程罢~🤔
-      link: /docs/use/
+      link: /use/
     - theme: alt
       text: 插件开发文档
-      link: /docs/plugin-dev/
+      link: /plugin-dev/
     - theme: alt
       text: 加入交流群
       link: https://qm.qq.com/q/dzwOUecEvu
