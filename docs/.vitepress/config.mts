@@ -49,13 +49,14 @@ export default defineConfig({
         editLink: {
             pattern: "https://github.com/daqyt/ToolDelta-Wiki/tree/main/docs/:path",
         },
+
         nav: [
             {
                 text: "使用",
                 link: "/use"
             },
             {
-                text: "API 参考",
+                text: "插件开发指南",
                 link: "/plugin-dev"
             },
             {
@@ -104,16 +105,24 @@ export default defineConfig({
                 {
                     text: "✨ 公用开发接口",
                     items: [{
-                        text: "基本接口方法",
-                        link: "/api/basic-apis"
+                        text: "程序框架和基本游戏接口",
+                        link: "./frame"
                     },
                     {
-                        text: "晋阶便捷接口方法",
-                        link: "/api/advanced-apis"
+                        text: "高级游戏交互接口",
+                        link: "./game_utils"
+                    },
+                    {
+                        text: "各类实用方法",
+                        link: "./utils-methods"
+                    },
+                    {
+                        text: "控制台输出",
+                        link: "./color_print"
                     },
                     {
                         text: "配置文件读取方法",
-                        link: "/api/cfg-use"
+                        link: "./cfg-use"
                     },
                     ],
                 },
