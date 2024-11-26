@@ -1,26 +1,32 @@
 ## Utils 类
 
+**Utils 提供了一些框架内常用的实用方法。**
+
 #### 获取方法
 ```python
 from tooldelta.utils import Utils
 ```
 
-**Utils 提供了一些框架内常用的非常有用的方法。**
+以下的所有方法都是 Utils 类中的成员。
 
----
-#### 基本方法
-
+### createThread {#createThread}
 ```python
-Utils.createThread(func, args, usage="", **kwargs)
+def createThread(
+    func: Callable,
+    args: tuple,
+    usage: str = "",
+    **kwargs
+) -> ToolDeltaThread
 ```
 
 创建一个特殊线程，这个线程受ToolDelta主框架控制和收集。和普通线程类不一样的是，它能使用 stop() 中断运行。
 - 参数：  
-    `func: Callable` 线程函数  
-    `args: tuple` 函数传入的参数组，默认为空  
-    `usage: str` 线程的用途，建议填写，默认为空  
-`**kwargs` 线程函数的关键字参数，默认为空
+    - **func** (Callable)： 线程函数  
+    - **args** (tuple)： 函数传入的参数组，默认为空  
+    - **usage** (str)： 线程的用途，建议填写，默认为空  
+    - **kwargs**： 线程函数的关键字参数，默认为空
 - 返回：`ToolDeltaThread`  
+
 可以使用 `.stop()` 以中止这个线程的执行（底层原理：在线程内下一条代码指令处引发专有异常）。
 
 :::details `Utils.createThread` 用法示例
@@ -38,20 +44,19 @@ while 1:
 ```
 :::
 
----
-
+### simple_fmt {#simple_fmt}
 ```python
-Utils.simple_fmt(kw, sub)
+def simple_fmt(kw: dict[str, Any], sub: str) -> str
 ```
 
 对字符串以简单的方法进行格式化替换。
 - 参数：  
-**kw** (dict[str, Any])： 替换标记与替换内容的映射字典   
-**sub** (str)： 将被格式化的字符串
+    - **kw** (dict[str, Any])： 替换标记与替换内容的映射字典   
+    - **sub** (str)： 将被格式化的字符串
 - 返回：
 格式后的字符串
 
-:::details `Utils。simple_fmt` 用法示例
+:::details `Utils.simple_fmt` 用法示例
 ```python
 >>> print(
     Utils.simple_fmt(
@@ -66,15 +71,15 @@ Utils.simple_fmt(kw, sub)
 ```
 :::
 
----
 
+### thread_func {#thread_func}
 ```python
-Utils.thread_func(usage: str)
+@Utils.thread_func(usage)
 ```
 
 作为装饰器使用， 放在任意堵塞函数上，使函数成为线程函数，在被执行的时候自身作为一个新线程启动，不会阻塞代码的继续运行。
 - 参数：  
-**usage** (str)： 此线程用途
+    - **usage** (str)： 此线程用途
 
 :::details `@Utils.thread_func` 用法示例
 ```python
@@ -88,13 +93,15 @@ say_hi("Super")
 ```
 :::
 
----
+### thread_gather {#thread_gather}
 ```python
-Utils.thread_gather(funcs_and_args)
+def thread_gather(funcs_and_args: list[tuple[Callable, tuple]])
 ```
-并行获取多个阻塞函数的返回值。  
+并行获取多个阻塞函数的返回值。
+
 - 参数：  
-**funcs_and_args** (list[tuple[Callable, tuple]])： 阻塞函数以及其参数的列表  
+    - **funcs_and_args** (list[tuple[Callable, tuple]])： 阻塞函数以及其参数的列表
+
 - 返回：  
 这些函数的返回的列表 （按传入函数的顺序返回其结果）
 
@@ -121,24 +128,23 @@ from tooldelta import Utils, game_utils
 ```
 :::
 
----
-
+### try_int {#try_int}
 ```python
-Utils.try_int(n: Any)
+def try_int(n: Any) -> int
 ```
 
 传入任意值（e.g.字符串）， 尝试转换为整数并返回，否则返回None
 
----
-
+### fill_list_index {#fill_list_index}
 ```python
-Utils.fill_list_index(lst: list[VT], default: list[VT])
+def fill_list_index(lst: list[VT], default: list[VT]) -> None
 ```
 当列表 lst 长度比 default 小时， 使用 default 中的剩余内容填充 lst 的剩余部分。
 - 参数：  
-**lst** (list)：待填充的列表
-**default** (list)： 用于填充默认值的列表
-- 无返回  
+    - **lst** (list)：待填充的列表
+    - **default** (list)： 用于填充默认值的列表
+- 无返回
+
 :::details `Utils.fill_list_index` 示例用法
 ```python
 >>> list_a = [1, 2]
@@ -151,23 +157,22 @@ Utils.fill_list_index(lst: list[VT], default: list[VT])
 >>> list_a
 [-2, -1, 3, 4]
 
->>> list_a = ["我"]
+>>> list_a = ["我", "的"]
 >>> Utils.fill_list_index(list_a, ["你", "好", "世", "界"])
 >>> list_a
-["我", "好", "世", "界"]
+["我", "的", "世", "界"]
 ```
 :::
 
----
+### to_player_selector {#to_player_selector}
 ```python
-Utils.to_player_selector(playername: str)
+def to_player_selector(playername: str) -> str
 ```
 将玩家名转化为目标选择器。
 传入目标选择器时，不会产生任何效果。
 - 参数：   
-**playername** (str)： 玩家名
-- 返回：  
-(str)：转化结果
+    - **playername** (str)： 玩家名
+- 返回：转化结果
 
 :::details `Utils.to_player_selector` 示例用法
 ```python
@@ -182,10 +187,9 @@ Utils.to_player_selector(playername: str)
 ```
 :::
 
----
-
+### create_result_cb {#create_result_cb}
 ```python
-Utils.create_result_cb()
+def create_result_cb() -> (getter, setter)
 ```
 创建一对回调锁（获取方法和设置方法）。
 
@@ -193,20 +197,20 @@ Utils.create_result_cb()
 ```python
 from uuid import uuid4
 
-cbs = {}
+callback_handlers = {}
 
-def cb_handler(uuid, data):
-    cbs[uuid](data)
+def callback_handler(uuid, data):
+    callback_handlers[uuid](data)
 
 def wait_result():
     timeout = 5 # 等待回调的超时时间
     uuid_gen = str(uuid4())
     getter, setter = Utils.create_result_cb()
-    cbs[uuid_gen] = setter
+    callback_handlers[uuid_gen] = setter
     # 
     # 如果超时将返回None; 否则返回回调结果
     result = getter(timeout)
-    del cbs[uuid_gen]
+    del callback_handlers[uuid_gen]
     return result
 
 ```
@@ -226,16 +230,16 @@ TMPJson.loadPathJson(path, needFileExists=False)
 在缓存文件已加载的情况下，再使用一次该方法不会有任何作用。  
 一般情况下， 强烈建议使用 `read_as_tmp()` 代替此方法
 - 参数：  
-`path: str` 文件路径，同时作为这个文件的磁盘路径和虚拟路径  
-`needFileExists: bool` 是否需要文件存在，为False则自动创建一个内容为null的json文件。默认为True  
+    - **path** (str)： 文件路径，同时作为这个文件的磁盘路径和虚拟路径  
+    - **needFileExists** (bool)： 是否需要文件存在，为False则自动创建一个内容为null的json文件。默认为True  
 
 ```python
-unloadPathJson
+TMPJson.unloadPathJson(path)
 ```
 
 将json从缓冲区卸载并存盘，之后不能对此文件进行读写。
 - 参数：  
-`path: str` 文件路径，同时作为这个文件的磁盘路径和虚拟路径
+    - **path** (str)： 文件路径，同时作为这个文件的磁盘路径和虚拟路径
 - 返回：  
 `bool` 是否卸载成功（没有加载文件时卸载视为不成功）
 - 报错：  
@@ -249,7 +253,7 @@ TMPJson.read(path)
 
 对虚拟路径中的json进行读取。返回一个缓存区经过深拷贝的json对象。
 - 参数：
-`path: str` json文件的虚拟路径
+    - **path** (str)： json文件的虚拟路径
 - 返回：
 `Any` json对象
 
@@ -261,8 +265,8 @@ TMPJson.write(path, obj)
 
 对虚拟路径中的json进行覆写操作（注意是覆写之前的内容）。
 - 参数：  
-`path: str` json文件的虚拟路径  
-`obj: Any` 待写入的任意json对象  
+    - **path** (str)： json文件的虚拟路径  
+    - **obj** (Any)： 待写入的任意json对象  
 - 报错：  
 `ValueError` json虚拟路径未载入，无法写入
 
@@ -276,7 +280,7 @@ TMPJson.read_as_tmp(path, needFileExists=False, timeout=30)
 - 参数：  
 `path` json文件的虚拟路径  
 `needFileExists` 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
-`timeout: int` 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
+    - **timeout** (int)： 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
 
 ```python
 TMPJson.write_as_tmp(path, obj, needFileExists=False, timeout=30)
@@ -284,10 +288,10 @@ TMPJson.write_as_tmp(path, obj, needFileExists=False, timeout=30)
 
 对虚拟路径中的json进行覆写。如果不存在，则尝试从磁盘打开对应路径的json文件。在限定时间后自动存盘卸载。  
 - 参数：  
-`path` json文件的虚拟路径  
-`obj: Any` 待写入的任意json对象  
-`needFileExists` 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
-`timeout: int` 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
+    - **path** (str)： json文件的虚拟路径  
+    - **obj** (Any)： 待写入的任意json对象  
+    **needFileExists** (bool)： 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
+    - **timeout** (int)： 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
 
 :::details TMPJson 各方法综合使用示例
 ```python
