@@ -14,3 +14,5 @@ pip install tooldelta
 
 | [类式插件开发教程](./class-plugin/创建插件) | [注入式插件开发教程](./injected-plugin/编写教程) |
 | -- | -- |
+
+什么？读文档太烦人了？可以去[**插件市场**](/use/plugin_market)下载几个插件作为例子！
