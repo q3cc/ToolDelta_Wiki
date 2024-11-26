@@ -182,15 +182,7 @@ export default defineConfig({
                             link: "/api/extras/Z-Basic/扩展功能"
                         },
                         ],
-                    },],
-                },
-                {
-                    text: "类式插件",
-                    link: "/api/classic-plugin"
-                },
-                {
-                    text: "注入式插件",
-                    link: "/api/injected-plugin"
+                    }],
                 },
             ],
         },
