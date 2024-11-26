@@ -101,28 +101,28 @@ export default defineConfig({
                     ],
                 }
             ],
-            "/api": [
+            "/plugin-dev": [
                 {
                     text: "✨ 公用开发接口",
                     items: [{
                         text: "程序框架和基本游戏接口",
-                        link: "./frame"
+                        link: "./api/frame"
                     },
                     {
                         text: "高级游戏交互接口",
-                        link: "./game_utils"
+                        link: "./api/game_utils"
                     },
                     {
                         text: "各类实用方法",
-                        link: "./utils-methods"
+                        link: "./api/api/utils-methods"
                     },
                     {
                         text: "控制台输出",
-                        link: "./color_print"
+                        link: "./api/color_print"
                     },
                     {
                         text: "配置文件读取方法",
-                        link: "./cfg-use"
+                        link: "./api/cfg-use"
                     },
                     ],
                 },
@@ -130,30 +130,30 @@ export default defineConfig({
                     text: "✨ 类式插件开发指南",
                     items: [{
                         text: "创建插件",
-                        link: "/plugin-dev/class-plugin/创建插件"
+                        link: "./class-plugin/创建插件"
                     },
                     {
                         text: "编写插件主体",
-                        link: "/plugin-dev/class-plugin/插件主体"
+                        link: "./class-plugin/插件主体"
                     },
                     {
                         text: "创建一个跨插件接口",
-                        link: "/plugin-dev/class-plugin/插件API"
+                        link: "./class-plugin/插件API"
                     }],
                 },
                 {
                     text: "✨ 注入式插件开发指南",
                     items: [{
                         text: "添加一个插件文件",
-                        link: "/api/injected-plugin/创建插件",
+                        link: "./api/injected-plugin/创建插件",
                     },
                     {
                         text: "编写教程",
-                        link: "/api/injected-plugin/编写教程",
+                        link: "./injected-plugin/编写教程",
                     },
                     {
                         text: "事件获取API",
-                        link: "/api/injected-plugin/事件获取",
+                        link: "./injected-plugin/事件获取",
                     },
                     ],
                 },
@@ -163,25 +163,24 @@ export default defineConfig({
                         text: "ToolDelta中文编程",
                         items: [{
                             text: "介绍",
-                            link: "/api/extras/Z-Basic/intro"
+                            link: "./api/extras/Z-Basic/intro"
                         },
                         {
                             text: "入门ZBasic",
-                            link: "/api/extras/Z-Basic/入门ZBasic"
+                            link: "./api/extras/Z-Basic/入门ZBasic"
                         },
                         {
                             text: "指令语句",
-                            link: "/api/extras/Z-Basic/所有指令语句"
+                            link: "./api/extras/Z-Basic/所有指令语句"
                         },
                         {
                             text: "内置函数",
-                            link: "/api/extras/Z-Basic/内置函数"
+                            link: "./api/extras/Z-Basic/内置函数"
                         },
                         {
                             text: "扩展函数&语法",
-                            link: "/api/extras/Z-Basic/扩展功能"
-                        },
-                        ],
+                            link: "./api/extras/Z-Basic/扩展功能"
+                        }],
                     }],
                 },
             ],
