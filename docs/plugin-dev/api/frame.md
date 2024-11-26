@@ -89,6 +89,24 @@ class MyPlugin(Plugin):
 
 #### 基本接口方法
 
+---
+
+```python
+>>> game_ctrl.allplayers
+['SkyblueSuper', 'FSkyBlueBot', '张哥之足球梦想', '雨阴阳']
+```
+获取当前实时在线玩家名列表
+
+---
+
+```python
+>>> game_ctrl.bot_name
+'FSkyBlueBot'
+```
+获取 ToolDelta 机器人的游戏名
+
+---
+
 ```python
 def checkAvaliable() -> None
 ```
