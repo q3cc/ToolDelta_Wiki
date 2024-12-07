@@ -218,12 +218,22 @@ def wait_result():
 
 ---
 
-#### 专用方法: TMPJson
+### TMPJson 类
 
 **Utils.TMPJson：** 提供了加载、卸载、读取和写入JSON文件到**缓存区**的方法的类，让JSON的读取写入更加迅速，磁盘操作更少。
 
+获取方法：
 ```python
-TMPJson.loadPathJson(path, needFileExists=False)
+from tooldelta import Utils
+
+TMPJson = Utils.TMPJson
+```
+
+#### 内含方法
+以下方法都是 TMPJson 类的成员。
+
+```python
+def loadPathJson(path, needFileExists=False)
 ```
 
 从磁盘路径加载json文件到缓存区，用于快速读写。  
@@ -234,7 +244,7 @@ TMPJson.loadPathJson(path, needFileExists=False)
     - **needFileExists** (bool)： 是否需要文件存在，为False则自动创建一个内容为null的json文件。默认为True  
 
 ```python
-TMPJson.unloadPathJson(path)
+def unloadPathJson(path)
 ```
 
 将json从缓冲区卸载并存盘，之后不能对此文件进行读写。
@@ -248,7 +258,7 @@ TMPJson.unloadPathJson(path)
 ---
 
 ```python
-TMPJson.read(path)
+def read(path: str)
 ```
 
 对虚拟路径中的json进行读取。返回一个缓存区经过深拷贝的json对象。
@@ -260,7 +270,7 @@ TMPJson.read(path)
 ---
 
 ```python
-TMPJson.write(path, obj)
+def write(path: str, obj)
 ```
 
 对虚拟路径中的json进行覆写操作（注意是覆写之前的内容）。
@@ -273,24 +283,25 @@ TMPJson.write(path, obj)
 ---
 
 ```python
-TMPJson.read_as_tmp(path, needFileExists=False, timeout=30)
+def read_as_tmp(path: str, needFileExists=False, default=None, timeout=30)
 ```
 
 对虚拟路径中的json进行读取。如果不存在，则尝试从磁盘打开对应路径的json文件。在限定时间后自动存盘卸载。
 - 参数：  
-`path` json文件的虚拟路径  
-`needFileExists` 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
-    - **timeout** (int)： 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
+    - **path** (str): json文件的虚拟路径  
+    - **needFileExists** (bool): 当从磁盘读取文件时，是否在文件不存在时自动创建一个 json 文件。默认为 False  
+    - **default** (Any): 当文件不存在时，向空文件写入的默认内容，也将作为返回值返回
+    - **timeout** (int)： 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为 30
 
 ```python
-TMPJson.write_as_tmp(path, obj, needFileExists=False, timeout=30)
+def write_as_tmp(path, obj, needFileExists=False, timeout=30)
 ```
 
 对虚拟路径中的json进行覆写。如果不存在，则尝试从磁盘打开对应路径的json文件。在限定时间后自动存盘卸载。  
 - 参数：  
     - **path** (str)： json文件的虚拟路径  
     - **obj** (Any)： 待写入的任意json对象  
-    **needFileExists** (bool)： 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
+    - **needFileExists** (bool)： 当从磁盘读取文件时，是否在文件不存在时自动创建一个内容为null的json文件。默认为False  
     - **timeout** (int)： 经过多长时间（秒）后自动将打开的json文件从缓存区卸载，默认为30
 
 :::details TMPJson 各方法综合使用示例
