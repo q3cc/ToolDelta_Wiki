@@ -24,22 +24,6 @@ from tooldelta.starter import frame
 
 ---
 
-获取当前租赁服号
-```python
->>> frame.serverNumber
-"17383329"
-```
-
----
-
-获取当前租赁服密码
-```python
->>> frame.serverNumber
-""
-```
-
----
-
 获取当前使用的游戏启动器框架实例
 ```python
 >>> frame.launcher
