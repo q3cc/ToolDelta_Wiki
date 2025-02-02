@@ -139,6 +139,9 @@ export default defineConfig({
                     {
                         text: "创建一个跨插件接口",
                         link: "/plugin-dev/class-plugin/插件API"
+                    },{
+                        text: "插件编写实战-商店系统",
+                        link: "/plugin-dev/class-plugin/demo/示例插件.md"
                     }],
                 },
                 {
