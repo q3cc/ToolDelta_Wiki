@@ -9,6 +9,7 @@ from tooldelta import game_utils
 
 ## 基本方法
 
+
 ### getTarget {#getTarget}
 ```python
 def getTarget(target: str, timeout = 5) -> list[str]
@@ -18,6 +19,8 @@ def getTarget(target: str, timeout = 5) -> list[str]
 - 参数：
   - **target** (str)：玩家目标选择器
   - **timeout** (int)：获取超时时间， 默认为 5 秒， 超时引发 `TimeoutError`
+
+---
 
 ### getPos {#getPos}
 ```python
@@ -43,6 +46,8 @@ def getPos(target: str) -> dict
   - **ValueError**: 当获取位置信息失败时抛出该异常
   - **AttributeError**: 当获取玩家 UUID 失败时抛出该异常
 
+---
+
 ### getPosXYZ {#getPosXYZ}
 ```python
 def getPosXYZ(target: str) -> tuple[float, float, float]
@@ -54,6 +59,7 @@ def getPosXYZ(target: str) -> tuple[float, float, float]
 
 - **返回**： (x, y, z) 坐标三元元组
 
+---
 
 ### getItem {#getItem}
 
@@ -72,6 +78,8 @@ def getItem(
   - **itemSpecialID** (int)：物品的特殊值， 默认为 -1
 
 - 返回：玩家持有的该物品的数量
+
+---
 
 ### getScore {#getScore}
 ```python
@@ -93,6 +101,8 @@ def getScore(
 - 异常：
   - ValueError: 计分板名 / 对应计分板项不存在
 
+---
+
 ### isCmdSuccess {#isCmdSuccess}
 ```python
 def isCmdSuccess(cmd: str, timeout: float = 30) -> bool
@@ -109,6 +119,8 @@ def isCmdSuccess(cmd: str, timeout: float = 30) -> bool
 
 - 异常：
   - TimeoutError: 等待指令返回值超时
+
+---
 
 ### take_item_out_item_frame {#take-item-out-item-frame}
 ```python

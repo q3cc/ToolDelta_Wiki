@@ -124,6 +124,10 @@ export default defineConfig({
                         text: "配置文件读取方法",
                         link: "/plugin-dev/api/cfg-use"
                     },
+                    {
+                        text: "NeOmega 额外接口",
+                        link: "/plugin-dev/api/spec-neomega"
+                    },
                     ],
                 },
                 {

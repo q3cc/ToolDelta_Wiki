@@ -54,7 +54,7 @@ def add_console_menu_trigger(
 > 注：此处之提供与游戏交互的最基本的方法。
 > 若想调用高级功能（如获取玩家计分板分数等），请移步至 高级接口（game_utils）
 
-#### GameContorl 的获取
+#### GameControl 的获取
 在**插件主类以外**或者**注入式插件**：
 ```python
 import tooldelta
@@ -91,6 +91,7 @@ class MyPlugin(Plugin):
 
 ---
 
+### checkAvaliable
 ```python
 def checkAvaliable() -> None
 ```
@@ -98,6 +99,7 @@ def checkAvaliable() -> None
 
 ---
 
+### sendcmd
 ```python
 def sendcmd(
     cmd: str,
@@ -116,6 +118,7 @@ def sendcmd(
 
 ---
 
+### sendwscmd
 ```python
 def sendwscmd(
     cmd: str,
@@ -128,6 +131,7 @@ def sendwscmd(
 
 ---
 
+### sendwocmd
 ```python
 def sendwocmd(cmd: str) -> None
 ```
@@ -137,16 +141,19 @@ def sendwocmd(cmd: str) -> None
 
 ---
 
+### sendPacket
 ```python
 def sendPacket(packetID: int, packet: dict) -> None
 ```
   - 以机器人身份发送 MC 客户端数据包至服务器
+  - 数据包格式可参考 `Minecraft Bedrock Protocol`
   - 参数：  
   **packetID** (int)： 数据包数字ID  
   **packet** (dict)： 数据包内容
 
 ---
 
+### say_to
 ```python
 def say_to(target: str, text: str) -> None
 ```
@@ -157,6 +164,7 @@ def say_to(target: str, text: str) -> None
 
 ---
 
+### player_title
 ```python
 def player_title(target: str, text: str) -> None
 ```
@@ -167,6 +175,7 @@ def player_title(target: str, text: str) -> None
 
 ---
 
+### player_subtitle
 ```python
 def player_subtitle(target: str, text: str) -> None
 ```
@@ -177,6 +186,7 @@ def player_subtitle(target: str, text: str) -> None
 
 ---
 
+### player_actionbar
 ```python
 def player_actionbar(target: str, text: str) -> None
 ```

@@ -2,6 +2,12 @@
 
 > 详细的接口参考
 
+::: WARNING 1
+
+1
+
+:::
+
 ## _def_ player_message
 
 **载入处理玩家消息**
