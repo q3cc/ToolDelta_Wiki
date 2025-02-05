@@ -31,7 +31,7 @@ else:
 
 ## 内含方法
 
-### get_bot_basic_info
+### get_bot_basic_info() {#get_bot_basic_info}
 ```python
 def get_bot_basic_info() -> ClientMaintainedBotBasicInfo
 ```
@@ -42,9 +42,8 @@ def get_bot_basic_info() -> ClientMaintainedBotBasicInfo
     - `BotUniqueID` (str): 机器人在游戏中的 uniqueID
     - `BotUUIDStr` (str): 机器人账号的 UUID
 
----
 
-### get_extend_info
+## get_extend_info() {#get_extend_info}
 ```python
 def get_extend_info() -> ClientMaintainedExtendInfo
 ```
@@ -61,9 +60,8 @@ class ClientMaintainedExtendInfo:
     GameRules: dict[str, Any] | None = None
 ```
 
----
 
-### get_player_by_name
+## get_player_by_name() {#get_player_by_name}
 ```python
 def get_player_by_name(name: str) -> PlayerKit | None
 ```
@@ -100,10 +98,10 @@ def get_player_by_name(name: str) -> PlayerKit | None
     - `set_operator_commands_permission(allow: bool)` 设置执行命令权限
     - `set_teleports_permission(allow: bool)` 设置传送权限
     
----
 
-### get_player_by_name
+## get_player_by_name
 ```python
 def get_player_by_uuid(name: str) -> PlayerKit | None
 ```
 - 根据玩家 UUID 获取玩家数据
+

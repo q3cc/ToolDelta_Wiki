@@ -105,24 +105,32 @@ export default defineConfig({
                 {
                     text: "✨ 公用开发接口",
                     items: [{
-                        text: "程序框架和基本游戏接口",
-                        link: "/plugin-dev/api/frame"
+                        text: "💻️ 系统框架与控制台命令",
+                        link: "/plugin-dev/api/框架与控制台命令"
                     },
                     {
-                        text: "高级游戏交互接口",
-                        link: "/plugin-dev/api/game_utils"
+                        text: "🎮️ 高级游戏交互接口",
+                        link: "/plugin-dev/api/高级游戏交互接口"
                     },
                     {
-                        text: "各类实用方法",
-                        link: "/plugin-dev/api/utils-methods"
+                        text: "🔧 实用方法",
+                        link: "/plugin-dev/api/实用方法"
                     },
                     {
-                        text: "控制台输出",
-                        link: "/plugin-dev/api/color_print"
+                        text: "🎨 控制台输出管理",
+                        link: "/plugin-dev/api/控制台输出管理"
                     },
                     {
-                        text: "配置文件读取方法",
-                        link: "/plugin-dev/api/cfg-use"
+                        text: "📄 配置文件",
+                        link: "/plugin-dev/api/配置文件"
+                    },
+                    {
+                        text: "👨‍👩‍👧‍👧 玩家信息",
+                        link: "/plugin-dev/api/玩家信息"
+                    },
+                    {
+                        text: "👈 指令和数据包发送等",
+                        link: "/plugin-dev/api/指令和数据包发送等"
                     },
                     {
                         text: "NeOmega 额外接口",
@@ -164,32 +172,32 @@ export default defineConfig({
                     },
                     ],
                 },
-                {
-                    text: "额外功能",
-                    items: [{
-                        text: "ToolDelta中文编程",
-                        items: [{
-                            text: "介绍",
-                            link: "/plugin-dev/api/extras/Z-Basic/intro"
-                        },
-                        {
-                            text: "入门ZBasic",
-                            link: "/plugin-dev/api/extras/Z-Basic/入门ZBasic"
-                        },
-                        {
-                            text: "指令语句",
-                            link: "/plugin-dev/api/extras/Z-Basic/所有指令语句"
-                        },
-                        {
-                            text: "内置函数",
-                            link: "/plugin-dev/api/extras/Z-Basic/内置函数"
-                        },
-                        {
-                            text: "扩展函数&语法",
-                            link: "/plugin-dev/api/extras/Z-Basic/扩展功能"
-                        }],
-                    }],
-                },
+                // {
+                //     text: "额外功能",
+                //     items: [{
+                //         text: "ToolDelta中文编程",
+                //         items: [{
+                //             text: "介绍",
+                //             link: "/plugin-dev/api/extras/Z-Basic/intro"
+                //         },
+                //         {
+                //             text: "入门ZBasic",
+                //             link: "/plugin-dev/api/extras/Z-Basic/入门ZBasic"
+                //         },
+                //         {
+                //             text: "指令语句",
+                //             link: "/plugin-dev/api/extras/Z-Basic/所有指令语句"
+                //         },
+                //         {
+                //             text: "内置函数",
+                //             link: "/plugin-dev/api/extras/Z-Basic/内置函数"
+                //         },
+                //         {
+                //             text: "扩展函数&语法",
+                //             link: "/plugin-dev/api/extras/Z-Basic/扩展功能"
+                //         }],
+                //     }],
+                // },
             ],
         },
 
