@@ -136,6 +136,29 @@ export default defineConfig({
                         text: "NeOmega 额外接口",
                         link: "/plugin-dev/api/spec-neomega"
                     },
+                    {
+                        text: "前置插件 额外接口",
+                        items: [{
+                            text: "介绍",
+                            link: "/plugin-dev/api/pref-plugins"
+                        },
+                        {
+                            text: "聊天栏菜单",
+                            link: "/plugin-dev/api/pref-plugins/聊天栏菜单"
+                        },
+                        {
+                            text: "世界交互",
+                            link: "/plugin-dev/api/pref-plugins/世界交互"
+                        },
+                        {
+                            text: "玩家 XUID 获取",
+                            link: "/plugin-dev/api/pref-plugins/玩家XUID获取"
+                        },
+                        {
+                            text: "tps 计算器",
+                            link: "/plugin-dev/api/pref-plugins/tps计算器"
+                        },]
+                    },
                     ],
                 },
                 {
@@ -151,7 +174,7 @@ export default defineConfig({
                     {
                         text: "创建一个跨插件接口",
                         link: "/plugin-dev/class-plugin/插件API"
-                    },{
+                    }, {
                         text: "插件编写实战-商店系统",
                         link: "/plugin-dev/class-plugin/demo/示例插件.md"
                     }],

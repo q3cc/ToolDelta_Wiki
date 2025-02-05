@@ -17,3 +17,5 @@ pip install tooldelta
 | [类式插件开发实战](./class-plugin/demo/示例插件.md) | |
 
 什么？读文档太烦人了？可以去[**插件市场**](/use/plugin_market)下载几个插件作为例子！
+
+在浏览文档的时候，我们强烈建议通过 **侧边栏** 作为导航栏浏览。
