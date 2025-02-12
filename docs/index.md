@@ -17,7 +17,8 @@ hero:
       link: /plugin-dev/
     - theme: alt
       text: 加入交流群
-      link: https://qm.qq.com/q/dzwOUecEvu
+      link: https://qm.qq.com/q/KVaz5VucEy
+      # https://qm.qq.com/q/dzwOUecEvu
 features:
   - title: '为什么使用本 Wiki?'
     icon: 🔨
