@@ -133,6 +133,10 @@ export default defineConfig({
                         link: "/plugin-dev/api/指令和数据包发送等"
                     },
                     {
+                        text: "👂 数据包监听",
+                        link: "/plugin-dev/api/数据包监听"
+                    },
+                    {
                         text: "NeOmega 额外接口",
                         link: "/plugin-dev/api/spec-neomega"
                     },
