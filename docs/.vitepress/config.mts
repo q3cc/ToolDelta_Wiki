@@ -161,6 +161,10 @@ export default defineConfig({
                         {
                             text: "tps 计算器",
                             link: "/plugin-dev/api/pref-plugins/tps计算器"
+                        },
+                        {
+                            text: "MIDI 播放器",
+                            link: "/plugin-dev/api/pref-plugins/MIDI计算器"
                         },]
                     },
                     ],
