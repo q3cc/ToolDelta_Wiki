@@ -4,7 +4,7 @@
 
 提供了获取租赁服 tps 的接口。
 
-## 使用方法
+## 获取方式
 ```python
 from tooldelta import plugins
 
@@ -14,7 +14,7 @@ tps_calc = plugins.get_plugin_api("tps计算器")
 
 ## 接口
 
-## get_tps() {#get_tps}
+## 获取租赁服TPS值 {#get_tps}
 ```python
 def get_tps() -> float
 ```

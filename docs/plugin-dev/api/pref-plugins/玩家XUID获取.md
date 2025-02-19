@@ -6,7 +6,7 @@
 
 XUID 不会随着玩家名的改变而改变。
 
-## 使用方法
+## 获取方式
 ```python
 from tooldelta import plugins
 
@@ -15,7 +15,7 @@ xuid_getter = plugins.get_plugin_api("XUID获取")
 
 ## 接口
 
-## get_xuid_by_name() {#get_xuid_by_name}
+## 通过玩家名获取XUID {#get_xuid_by_name}
 ```python
 def get_xuid_by_name(playername: str, allow_offline=False) -> str
 ```
@@ -26,7 +26,7 @@ def get_xuid_by_name(playername: str, allow_offline=False) -> str
 - 返回：
     - **str**: 玩家 XUID。如果无法获取则引发 `ValueError`。
 
-## get_name_by_xuid() {#get_name_by_xuid}
+## 通过XUID获取玩家名 {#get_name_by_xuid}
 ```python
 def get_name_by_xuid(xuid: str, allow_offline=False) -> str
 ```
