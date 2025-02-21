@@ -4,6 +4,16 @@
 
 [[toc]]
 
+::: warning
+由于 ToolDelta 所依赖的验证服务的关闭，如果您没有 `FastBuilder` 验证服务，您将无法继续在本地使用 ToolDelta。  
+因此，我们提供了 ToolDelta Panel 云服面板服务，使得您能以较低的价格在云端使用 ToolDelta。  
+详见我们的 [群聊](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XGyPWC3k0-t0nZHGA2d0jzO7b9ogcI8N&authKey=zLTjnagIiquztxwxhfSdnT7sCTJY3iGT6Hgr5fJcU4heg98oyrhoNHCozMVYIbON&noverify=0&group_code=1030755163) 或我们的 [云端面板购买主站](http://store.dqyt.online)，仅将获利用于维持云服的运行。  
+  
+如果您确实拥有验证服务，那么您可以继续观看以下教程。
+:::
+
+### [点此](/docs/use/temp_learn_use) 查看云端 ToolDelta 使用教程
+
 ## 下载 ToolDelta
 
 | [Windows 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
@@ -74,7 +84,7 @@ Linux: 输入 `./ToolDelta` 即可。
 ```
 恭喜你，你的机器人成功进服并运行起来了！现在，你可以在控制台输入 `help` 看看你有什么可用的命令提示 (鉴于你还没有安装聊天栏菜单相关的插件，所以在**游戏**里输入 `.help`什么都不会发生)
 
-## 插插件——！ {#安装插件}
+## 插入插件——！ {#安装插件}
 
 然而，现在ToolDelta什么都干不了。我们需要一些让 ToolDelta 活跃起来的东西， 比如说插件？
 
@@ -105,7 +115,7 @@ Linux: 输入 `./ToolDelta` 即可。
 
 插件市场插件的前置插件不需要你手动下载，系统会自动下载好。
 
-> 安装完插件之后，重启 ToolDelta 之后插件才会生效。
+> 安装完插件之后，输入 reload 重载系统， 可使安装的插件生效。
 
 ## 嗯······该下线了 {#关闭}
 
