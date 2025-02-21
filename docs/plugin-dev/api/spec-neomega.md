@@ -101,7 +101,12 @@ def get_player_by_name(name: str) -> PlayerKit | None
 
 ## get_player_by_name
 ```python
+def get_player_by_name(name: str) -> PlayerKit | None
+```
+- 根据玩家名称获取玩家数据
+
+## get_player_by_uuid
+```python
 def get_player_by_uuid(name: str) -> PlayerKit | None
 ```
-- 根据玩家 UUID 获取玩家数据
-
+- 根据玩家名称获取玩家数据
