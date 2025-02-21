@@ -12,7 +12,7 @@
 如果您确实拥有验证服务，那么您可以继续观看以下教程。
 :::
 
-### [点此](/docs/use/temp_learn_use) 查看云端 ToolDelta 使用教程
+### [点此](/use/temp_learn_use) 查看云端 ToolDelta 使用教程
 
 ## 下载 ToolDelta
 
