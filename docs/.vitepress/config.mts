@@ -180,8 +180,8 @@ export default defineConfig({
                         link: "/plugin-dev/class-plugin/插件主体"
                     },
                     {
-                        text: "创建一个跨插件接口",
-                        link: "/plugin-dev/class-plugin/插件API"
+                        text: "跨插件调用",
+                        link: "/plugin-dev/class-plugin/前置插件"
                     },
                     {
                         text: "插件的数据文件",

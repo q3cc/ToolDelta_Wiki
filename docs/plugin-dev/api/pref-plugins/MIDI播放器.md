@@ -5,11 +5,18 @@
 提供了 `.mid` 文件的解析和在租赁服播放 MIDI 文件的功能。
 
 ## 获取方式
-```python
-from tooldelta import plugins
+- 类式插件：
+    ```python
+    class MyPlugin(Plugin):
+        ...
+        
+        def __init__(self, frame):
+            super().__init__(frame)
+            self.ListenPreload(self.on_preload)
 
-midi = plugins.get_plugin_api("MIDI播放器")
-```
+        def on_preload(self):
+            midi = self.GetPluginAPI("MIDI播放器")
+    ```
 
 ## 接口
 

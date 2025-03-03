@@ -7,11 +7,18 @@
 XUID 不会随着玩家名的改变而改变。
 
 ## 获取方式
-```python
-from tooldelta import plugins
+- 类式插件：
+    ```python
+    class MyPlugin(Plugin):
+        ...
+        
+        def __init__(self, frame):
+            super().__init__(frame)
+            self.ListenPreload(self.on_preload)
 
-xuid_getter = plugins.get_plugin_api("XUID获取")
-```
+        def on_preload(self):
+            xuid_getter = self.GetPluginAPI("XUID获取")
+    ```
 
 ## 接口
 

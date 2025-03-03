@@ -8,3 +8,13 @@
 
 ## 前置插件的获取
 在 ToolDelta 内置的插件市场内可以获取到文档里介绍的所有前置插件。
+
+以下提供了一些官方的前置插件信息。
+
+| 插件名称 | 文档 | 源码链接
+| --- | --- | --- |
+| 聊天栏菜单 | [点此前往](./聊天栏菜单) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_聊天栏菜单 |
+| 世界交互 | [点此前往](./世界交互) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_世界交互 |
+| 玩家XUID获取 | [点此前往](./玩家XUID获取) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_玩家XUID获取 |
+| MIDI播放器 | [点此前往](./MIDI播放器) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_MIDI播放器 |
+| tps计算器 | [点此前往](./tps计算器) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_tps计算器 |
