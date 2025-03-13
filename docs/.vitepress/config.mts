@@ -125,6 +125,10 @@ export default defineConfig({
                         link: "/plugin-dev/api/配置文件"
                     },
                     {
+                        text: "💾 快速json文件读写",
+                        link: "/plugin-dev/api/缓存式json文件"
+                    },
+                    {
                         text: "👨‍👩‍👧‍👧 玩家信息",
                         link: "/plugin-dev/api/玩家信息"
                     },

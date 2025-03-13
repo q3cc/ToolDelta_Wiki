@@ -2,6 +2,8 @@
 
 **tempjson** 模块提供了加载、卸载、读取和写入JSON文件到 **缓存区** 的方法的类，让 JSON 的读取写入更加迅速，磁盘操作更少。
 
+并且，它还大大加速了操作 json 文件的效率，一个函数就可以读取 / 写入 json 文件。
+
 获取方法：
 ```python
 from tooldelta.utils import tempjson
@@ -27,11 +29,11 @@ from tooldelta.utils import tempjson
 - 示例：
 ```python
 # test.json 已存在
-json_data = utils.load_and_read("test.json")
+json_data = tempjson.load_and_read("test.json")
 print(json_data)
 
 # foo.json 不存在
-json_data2 = utils.load_and_read(
+json_data2 = tempjson.load_and_read(
     "foo.json",
     need_file_exists=False,
     default={"bar": "baz"}
@@ -55,10 +57,10 @@ print(json_data2)
 - 示例：
 ```python
 # test.json 已存在
-utils.load_and_write("test.json", {"bar": "baz"})
+tempjson.load_and_write("test.json", {"bar": "baz"})
 
 # foo.json 不存在
-utils.load_and_write(
+tempjson.load_and_write(
     "foo.json",
     {"bar": "baz"},
     need_file_exists=False,
@@ -111,11 +113,11 @@ utils.load_and_write(
     | ValueError | json 文件未载入缓冲区，无法写入 |
 - 示例：
 ```python
-utils.load("my_json_db/test.json")
+tempjson.load("my_json_db/test.json")
 
-# 在任意位置使用 utils.load() 后
-# 可在任意位置使用 utils.read() 传入对应的路径以读取 json 内容
-json_data = utils.read("my_json_db/test.json")
+# 在任意位置使用 tempjson.load() 后
+# 可在任意位置使用 tempjson.read() 传入对应的路径以读取 json 内容
+json_data = tempjson.read("my_json_db/test.json")
 print(json_data)
 ```
 
@@ -133,11 +135,11 @@ print(json_data)
     | ValueError | json 文件未载入缓冲区，无法写入 |
 - 示例：
 ```python
-utils.load("my_json_db/test.json")
+tempjson.load("my_json_db/test.json")
 
-# 在任意位置使用 utils.load() 后
-# 可在任意位置使用 utils.write() 传入对应的路径和内容以覆写 json 内容
-utils.write("my_json_db/test.json", {"foo": "bar"})
+# 在任意位置使用 tempjson.load() 后
+# 可在任意位置使用 tempjson.write() 传入对应的路径和内容以覆写 json 内容
+tempjson.write("my_json_db/test.json", {"foo": "bar"})
 ```
 
 
