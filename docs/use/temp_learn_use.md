@@ -5,7 +5,7 @@
 
 玄冥版面板端：https://mcsm.tooldelta.top
 
-R620版面板端：https://mcsm.tooldelta.top  
+R620版面板端：https://r620.tooldelta.top  
 
 :::
 
