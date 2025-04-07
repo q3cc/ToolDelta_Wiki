@@ -28,7 +28,7 @@ export default defineConfig({
     ],
 
     sitemap: {
-        hostname: "https://td-wiki.dqyt.online",
+        hostname: "https://wiki.tooldelta.top",
     },
 
     themeConfig: {
@@ -89,6 +89,7 @@ export default defineConfig({
                 },
                 {
                     text: "使用教程",
+                    collapsed:true,
                     items: [
                         {
                             text: "📖 使用教程",
@@ -104,6 +105,7 @@ export default defineConfig({
             "/plugin-dev": [
                 {
                     text: "✨ 公用开发接口",
+                    collapsed: true,
                     items: [{
                         text: "💻️ 系统框架与控制台命令",
                         link: "/plugin-dev/api/框架与控制台命令"
@@ -146,6 +148,7 @@ export default defineConfig({
                     },
                     {
                         text: "前置插件 额外接口",
+                        collapsed: true,
                         items: [{
                             text: "介绍",
                             link: "/plugin-dev/api/pref-plugins"
@@ -175,6 +178,7 @@ export default defineConfig({
                 },
                 {
                     text: "✨ 类式插件开发指南",
+                    collapsed: true,
                     items: [{
                         text: "创建插件",
                         link: "/plugin-dev/class-plugin/创建插件"
@@ -198,6 +202,7 @@ export default defineConfig({
                 },
                 {
                     text: "✨ 注入式插件开发指南",
+                    collapsed: true,
                     items: [{
                         text: "添加一个插件文件",
                         link: "/plugin-dev/injected-plugin/创建插件.md",
