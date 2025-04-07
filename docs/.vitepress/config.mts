@@ -89,7 +89,7 @@ export default defineConfig({
                 },
                 {
                     text: "使用教程",
-                    collapsed:true,
+                    collapsed: true,
                     items: [
                         {
                             text: "📖 使用教程",
@@ -143,11 +143,17 @@ export default defineConfig({
                         link: "/plugin-dev/api/数据包监听"
                     },
                     {
-                        text: "NeOmega 额外接口",
-                        link: "/plugin-dev/api/spec-neomega"
+                        text: "🔌 各启动框架的额外接口",
+                        collapsed: true,
+                        items: [
+                            {
+                                text: "NeOmega 接入点",
+                                link: "/plugin-dev/api/spec-neomega"
+                            },
+                        ],
                     },
                     {
-                        text: "前置插件 额外接口",
+                        text: "👑 官方前置插件的接口",
                         collapsed: true,
                         items: [{
                             text: "介绍",
@@ -177,7 +183,7 @@ export default defineConfig({
                     ],
                 },
                 {
-                    text: "✨ 类式插件开发指南",
+                    text: "✨ 标准插件开发指南",
                     collapsed: true,
                     items: [{
                         text: "创建插件",
@@ -199,23 +205,6 @@ export default defineConfig({
                         text: "插件编写实战-商店系统",
                         link: "/plugin-dev/class-plugin/demo/示例插件.md"
                     }],
-                },
-                {
-                    text: "✨ 注入式插件开发指南",
-                    collapsed: true,
-                    items: [{
-                        text: "添加一个插件文件",
-                        link: "/plugin-dev/injected-plugin/创建插件.md",
-                    },
-                    {
-                        text: "编写教程",
-                        link: "/plugin-dev/injected-plugin/编写教程",
-                    },
-                    {
-                        text: "事件获取API",
-                        link: "/plugin-dev/injected-plugin/事件获取",
-                    },
-                    ],
                 },
                 // {
                 //     text: "额外功能",

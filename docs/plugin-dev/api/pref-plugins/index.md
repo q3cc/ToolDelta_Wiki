@@ -1,4 +1,4 @@
-# 前置插件提供的接口
+# 官方前置插件提供的接口
 
 由于 ToolDelta 是轻量的，所以它只提供了必要的与游戏交互的接口。
 
@@ -18,3 +18,5 @@
 | 玩家XUID获取 | [点此前往](./玩家XUID获取) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_玩家XUID获取 |
 | MIDI播放器 | [点此前往](./MIDI播放器) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_MIDI播放器 |
 | tps计算器 | [点此前往](./tps计算器) | https://github.com/ToolDelta-Basic/PluginMarket/tree/main/前置_tps计算器 |
+
+对于前置插件的调用，可前往 [此处](/plugin-dev/class-plugin/前置插件.md) 查看教程和示例。
