@@ -25,7 +25,7 @@ from tooldelta.utils import tempjson
 - 报错：  
     | 类型 | 说明 |
     | --- | --- |
-    | FileNotFoundError | 在 `need_file_exists=False` 时 json 文件不存在 |
+    | FileNotFoundError | 在 `need_file_exists=True` 时 json 文件不存在 |
 - 示例：
 ```python
 # test.json 已存在
