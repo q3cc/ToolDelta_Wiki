@@ -241,7 +241,7 @@ export default defineConfig({
         },],
         externalLinkIcon: true, // 展示站外链接箭头 ↗
         footer: {
-            message: `基于 GPL-3.0 license 许可发布 | 文档版本 ${pkg.version}`,
+            message: `备案号 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">桂ICP备2025061689号-1</a> | 文档版本 ${pkg.version}`,
             copyright: `版权所有 © 2023-${new Date().getFullYear()} ToolDelta`,
         },
         docFooter: {
