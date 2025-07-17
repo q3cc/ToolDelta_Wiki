@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 201.53 223.37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00539c;
+        stroke: #00539c;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: url(#_未命名的渐变_31);
+        stroke: url(#_未命名的渐变_56);
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 1.1px;
+      }
+
+      .cls-3 {
+        fill: #ec7c1d;
+        stroke: #ec7c1d;
+      }
+
+      .cls-4 {
+        fill: url(#_未命名的渐变_44);
+        stroke: url(#_未命名的渐变_46);
+      }
+    </style>
+    <linearGradient id="_未命名的渐变_44" data-name="未命名的渐变 44" x1="139.39" y1="183.68" x2="189.71" y2="96.52" gradientTransform="translate(.04 -.1) rotate(.03)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ec7c1d"/>
+      <stop offset="0" stop-color="#fed400"/>
+      <stop offset="0" stop-color="#fbae17"/>
+      <stop offset="0" stop-color="#ccc" stop-opacity="0"/>
+      <stop offset="0" stop-color="#c9cacb" stop-opacity=".02"/>
+      <stop offset=".02" stop-color="#aab6c3" stop-opacity=".25"/>
+      <stop offset=".04" stop-color="#90a5bd" stop-opacity=".45"/>
+      <stop offset=".06" stop-color="#7896b7" stop-opacity=".62"/>
+      <stop offset=".08" stop-color="#668ab2" stop-opacity=".76"/>
+      <stop offset=".11" stop-color="#5781af" stop-opacity=".87"/>
+      <stop offset=".14" stop-color="#4d7aac" stop-opacity=".94"/>
+      <stop offset=".18" stop-color="#4777ab" stop-opacity=".99"/>
+      <stop offset=".27" stop-color="#4676ab"/>
+      <stop offset="1" stop-color="#3571b9"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_46" data-name="未命名的渐变 46" x1="138.99" y1="184.09" x2="190.13" y2="95.5" gradientTransform="translate(.04 -.1) rotate(.03)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ec7c1d"/>
+      <stop offset="0" stop-color="#fed400"/>
+      <stop offset="0" stop-color="#fbae17"/>
+      <stop offset="0" stop-color="#ccc" stop-opacity="0"/>
+      <stop offset=".14" stop-color="#4676ab"/>
+      <stop offset="1" stop-color="#3571b9"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_31" data-name="未命名的渐变 31" x1="52.17" y1="176.31" x2="105.32" y2="176.31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#375a8d"/>
+      <stop offset="0" stop-color="#ccc" stop-opacity="0"/>
+      <stop offset="0" stop-color="#cfccbe" stop-opacity=".07"/>
+      <stop offset=".04" stop-color="#ddce85" stop-opacity=".35"/>
+      <stop offset=".07" stop-color="#e8d055" stop-opacity=".58"/>
+      <stop offset=".1" stop-color="#f2d230" stop-opacity=".76"/>
+      <stop offset=".13" stop-color="#f8d316" stop-opacity=".89"/>
+      <stop offset=".15" stop-color="#fcd305" stop-opacity=".97"/>
+      <stop offset=".16" stop-color="#fed400"/>
+      <stop offset=".46" stop-color="#fbae17"/>
+      <stop offset="1" stop-color="#ec7c1d"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_56" data-name="未命名的渐变 56" x1="51.62" y1="176.3" x2="105.87" y2="176.3" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#375a8d"/>
+      <stop offset="0" stop-color="#ccc" stop-opacity="0"/>
+      <stop offset=".02" stop-color="#ceccc0" stop-opacity=".06"/>
+      <stop offset=".07" stop-color="#d6cda1" stop-opacity=".21"/>
+      <stop offset=".13" stop-color="#e2cf70" stop-opacity=".45"/>
+      <stop offset=".2" stop-color="#f2d22d" stop-opacity=".78"/>
+      <stop offset=".25" stop-color="#fed400"/>
+      <stop offset=".3" stop-color="#fcc508"/>
+      <stop offset=".39" stop-color="#fbb413"/>
+      <stop offset=".46" stop-color="#fbae17"/>
+      <stop offset="1" stop-color="#ec7c1d"/>
+    </linearGradient>
+  </defs>
+  <g id="_图层_1-2" data-name="图层 1">
+    <g>
+      <polygon class="cls-1" points="103.75 .58 .99 58.85 52.37 89.55 156.51 31.68 103.75 .58"/>
+      <polygon class="cls-4" points="200.26 102.62 101.69 160.84 153.06 191.57 200.97 164.97 200.26 102.62"/>
+      <polygon class="cls-2" points="105.32 161.09 52.57 130.38 52.17 191.79 105.32 222.23 105.32 161.09"/>
+      <polygon class="cls-3" points="158.52 192.25 106.43 222.42 106.43 161.82 158.52 192.25"/>
+      <polyline class="cls-1" points=".99 58.85 .99 164.5 52.17 195.07 52.37 89.55"/>
+    </g>
+  </g>
+</svg>

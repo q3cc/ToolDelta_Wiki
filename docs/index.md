@@ -5,9 +5,9 @@ hero:
   name: 'ToolDelta Wiki'
   tagline: 感谢各位的到来💡
   image:
-    src: /logo.ico
+    src: /logo.png
     alt: Logo
-    width: 180px
+    width: 540px
   actions:
     - theme: brand
       text: 开始教程罢~🤔
