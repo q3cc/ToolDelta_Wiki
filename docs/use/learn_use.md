@@ -16,19 +16,18 @@
 
 ## 下载 ToolDelta
 
-| [Windows 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.dqyt.online/https://github.com/ToolDelta/ToolDelta/releases/latest/download/ToolDelta-linux) |
+| [Windows 用户点我](https://github.tooldelta.top/https://github.com/ToolDelta-Basic/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://github.tooldelta.top/https://github.com/ToolDelta-Basic/ToolDelta/releases/latest/download/ToolDelta-linux) |
 | ------ | ------ |
 
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
-curl -sSL https://github.dqyt.online/https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
+curl -sSL https://github.tooldelta.top/https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
 ## ToolDelta，启动！
 
 Windows: 双击所获得的 exe 文件即可。
-Linux: 输入 `./ToolDelta` 即可。
 
 ::: warning
 以下的部分教程由于 ToolDelta 更新，未能及时更改，请以实际情况为准。
@@ -37,32 +36,33 @@ Linux: 输入 `./ToolDelta` 即可。
 
 将会出现类似如下界面：
 ```
-[05:54]  信息  请选择启动器启动模式 (之后可在 ToolDelta 启动配置更改):
-[05:54]  信息   1 - NeOmega 框架 (NeOmega 模式，租赁服适应性强，推荐)
-[05:54]  信息   2 - NeOmega 框架 (NeOmega 连接模式，需要先启动对应的 neOmega 接入点)
+15:11  信息   1 - NeOmega 框架 (NeOmega 模式)
+15:11  信息   2 - NeOmega 框架 (NeOmega 连接模式，需要先启动对应的 neOmega 接入点)
+15:11  信息   3 - NeOmega 框架 (NeOmega 并行模式，同时运行NeOmega和ToolDelta)
+15:11  信息   4 - Eulogist 框架 (赞颂者和ToolDelta并行使用)
+15:11  信息   5 - FateArk 框架 [推荐]
+15:11  信息   6 - FateArk 远程框架
 [05:54]  输入  请选择：
 ```
-如果您不很熟悉 ToolDelta，请选择 1 (输入 1 然后回车)。
+如果您不很熟悉 ToolDelta，请选择 5 (输入 5 然后回车)。
 
 ```
-[05:54]  信息  请选择启动器启动模式 (之后可在 ToolDelta 启动配置更改):
-[05:54]  信息   1 - NeOmega 框架 (NeOmega 模式，租赁服适应性强，推荐)
-[05:54]  信息   2 - NeOmega 框架 (NeOmega 连接模式，需要先启动对应的 neOmega 接入点)
-[05:54]  输入  请选择：1
 [05:55]  输入  请输入租赁服号：# [!code focus]
 ```
 这时候输入**租赁服号**，回车键之后再输入**密码**，输入之后就不用手动填写租赁服登录配置了。
 
 接下来出现的是选择界面：
 ```
-[05:58]  信息  选择 ToolDelta 机器人账号 使用的验证服务器：
-[05:58]  信息   1 - FastBuilder 官方验证服务器
-[05:58]  信息   2 - 咕咕酱 FB验证服务器
+15:12  信息  选择 ToolDelta 机器人账号 使用的验证服务器：
+15:12  信息   1 - FastBuilder 官方验证服务器 ✘不再可用
+15:12  信息   2 - 咕咕酱 FB验证服务器 ✘不再可用
+15:12  信息   3 - NetHard 验证服务器 ✔可用
+15:12  信息   4 - 手动输入
 [05:58]  信息  NOTE: 使用的机器人账号是在哪里获取的就选择哪一个验证服务器，不能混用
 [05:58]  输入  请选择：
 ```
 请注意，ToolDelta 需要使用**机器人账号**登录租赁服，所以你在这之前可能需要找到任意一个**验证服务器**注册 (或购买) 账号。
-这里使用的是 **FastBuilder 的用户中心** [点我前往用户中心→](https://user.fastbuilder.pro)
+这里使用的是 **Nethard 的用户中心** [点我前往用户中心→](https://nv1.nethard.pro)
 
 接下来，如果你不想手动获取 Token， 照着提示做，输入账号密码即可（账号密码仅用于获取Token）。
 
@@ -71,8 +71,7 @@ Linux: 输入 `./ToolDelta` 即可。
 
 因为你目前还没有安装任何插件，所以会出现这么一行输出：
 ```
-[15:06]  成功  成功载入 0 个组合式插件, 0 个注入式插件, 0 个DotCS插件
-```
+[15:06]  成功  成功载入 0 个类式插件插件```
 
 没关系！你以后可以通过 **插件市场** 或者自己下载插件来安装更多的插件功能。
 之后等待机器人进入服务器，直到出现类似这样的输出：
