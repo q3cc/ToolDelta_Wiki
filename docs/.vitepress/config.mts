@@ -120,6 +120,10 @@ export default defineConfig({
                         link: "/plugin-dev/api/实用方法"
                     },
                     {
+                        text: "📚 游戏文本翻译",
+                        link: "/plugin-dev/api/游戏文本翻译"
+                    },
+                    {
                         text: "🎨 控制台输出管理",
                         link: "/plugin-dev/api/控制台输出管理"
                     },
