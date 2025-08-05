@@ -15,7 +15,7 @@ export default defineConfig({
     head: [
         ["link", {
             rel: "icon",
-            href: "/logo.ico"
+            href: "/ico.svg"
         }],
         ["script", {
             async: "",
@@ -32,6 +32,7 @@ export default defineConfig({
     },
 
     themeConfig: {
+        logo: { src: '/ico.svg', width: 24, height: 24 },
         search: {
             provider: "local",
             options: {
@@ -245,7 +246,7 @@ export default defineConfig({
         },],
         externalLinkIcon: true, // 展示站外链接箭头 ↗
         footer: {
-            message: `备案号 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">桂ICP备2025061689号-1</a> | 文档版本 ${pkg.version}`,
+            message: `<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">桂ICP备2025061689号-1</a> | 文档版本 ${pkg.version}`,
             copyright: `版权所有 © 2023-${new Date().getFullYear()} ToolDelta`,
         },
         docFooter: {
