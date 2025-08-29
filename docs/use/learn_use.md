@@ -5,8 +5,8 @@
 [[toc]]
 
 ::: warning
-由于 ToolDelta 所依赖的验证服务的关闭，如果您没有 `FastBuilder` 验证服务，您将无法继续在本地使用 ToolDelta。  
-因此，我们提供了 ToolDelta Panel 云服面板服务，使得您能以较低的价格在云端使用 ToolDelta。  
+如果您需要本地使用 ToolDelta， 可以注册并购买 [NV1 验证服务](https://nv1.nethard.pro) 用于 ToolDelta 的机器人 token。  
+如果您需要便捷的 ToolDelta 云端面板，我们提供了 ToolDelta Panel 云服面板服务，使得您能以较低的价格在云端使用 ToolDelta。  
 详见我们的 [群聊](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XGyPWC3k0-t0nZHGA2d0jzO7b9ogcI8N&authKey=zLTjnagIiquztxwxhfSdnT7sCTJY3iGT6Hgr5fJcU4heg98oyrhoNHCozMVYIbON&noverify=0&group_code=1030755163) 或我们的 [云端面板购买主站](http://store.dqyt.online)，仅将获利用于维持云服的运行。  
   
 如果您确实拥有验证服务，那么您可以继续观看以下教程。
