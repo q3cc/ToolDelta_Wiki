@@ -39,9 +39,15 @@ ToolDelta插件市场 Official: 欢迎使用 ToolDelta 插件市场.
 
 ## 上传的插件的规范格式和要求？
 
-允许上传的文件类型：Python 脚本，文本文件 (包括 Markdown, TXT file 等)
-插件需要放在 `plugin_market/your_plugin/` 目录下，主插件文件需要以 `__init__.py` 命名
-合法的插件格式像这样：
+允许上传的文件类型
+- Python 脚本  
+- 文本文件（包括 Markdown、TXT 等）
+
+插件要求
+- 插件必须放在 `plugin_market/your_plugin/` 目录下  
+- 主插件文件必须命名为 `__init__.py`  
+
+合法的插件格式示例如下：
 
 ```
 plugin_market/
