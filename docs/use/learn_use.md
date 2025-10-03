@@ -25,6 +25,34 @@
 curl -sSL https://github.tooldelta.top/https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
 
+::: details 高级用户（使用Docker）
+
+**使用已打包的 Docker 镜像**
+
+运行命令：
+
+```bash
+sudo docker pull crpi-6pmrt6su7uwffyo4.cn-shanghai.personal.cr.aliyuncs.com/tooldelta/tooldelta:latest
+```
+
+如果您需要将 ToolDelta 运行在 MCSM 中，在 应用实例设置>容器化 中选择镜像名 tooldelta:latest 即可。
+
+**手动打包 Docker 镜像**
+
+先拉取整个项目：
+
+```bash
+git clone https://github.com/ToolDelta-Basic/ToolDelta.git
+```
+
+在项目目录下运行命令：
+
+```bash
+docker build -t tooldelta .
+```
+
+:::
+
 ## ToolDelta，启动！
 
 Windows: 双击所获得的 exe 文件即可。
@@ -35,7 +63,7 @@ Windows: 双击所获得的 exe 文件即可。
 
 
 将会出现类似如下界面：
-```                             
+```txt{7}                             
        信息  请选择启动器启动模式 (之后可在 ToolDelta 启动配置更改):            
        信息   1 - NeOmega 框架 (NeOmega 模式)                                   
        信息   2 - NeOmega 框架 (NeOmega 连接模式，需要先启动对应的 neOmega      
@@ -52,10 +80,10 @@ Windows: 双击所获得的 exe 文件即可。
 ```
 [05:55]  输入  请输入租赁服号：# [!code focus]
 ```
-这时候输入**租赁服号**，回车键之后再输入**密码**(不会回显，没有请直接回车)，输入成功一次以后就会自动配置了。
+这时候输入**租赁服号**，回车键之后再输入**密码**(**不会回显**，没有请直接回车)，输入成功一次以后就会自动配置了。
 
 接下来出现的是选择界面：
-```
+```txt{4}
 15:12  信息  选择 ToolDelta 机器人账号 使用的验证服务器：
 15:12  信息   1 - FastBuilder 官方验证服务器 ✘不再可用
 15:12  信息   2 - 咕咕酱 FB验证服务器 ✘不再可用
@@ -91,7 +119,7 @@ Windows: 双击所获得的 exe 文件即可。
 然而，现在ToolDelta什么都干不了。我们需要一些让 ToolDelta 活跃起来的东西， 比如说插件？
 
 啊？找不到？没关系，ToolDelta 内置的插件市场提供了许多对新人友好的插件。刚才你输入 `help` 的时候发现什么了？
-```
+```txt{3}
 [15:06]  信息  以下是可选的菜单指令项:
 [15:06]  信息   ...
 [15:06]  信息   插件市场  ->  进入插件市场
@@ -99,7 +127,7 @@ Windows: 双击所获得的 exe 文件即可。
 
 这个插件市场该怎么用？不妨在控制台输入 **插件市场** 试试吧。
 
-```
+```txt{7}
 ToolDelta插件市场 Official: 欢迎使用 ToolDelta 插件市场.
 ------------------------------
 请选择搜索方式: 
