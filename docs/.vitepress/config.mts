@@ -48,13 +48,17 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         // logo: { src: "/logo.ico", width: 23, height: 15 },
         editLink: {
-            pattern: "https://github.com/daqyt/ToolDelta-Wiki/tree/main/docs/:path",
+            pattern: "https://github.com/ToolDelta-Basic/PluginMarket/tree/main/docs/:path",
         },
 
         nav: [
             {
                 text: "使用",
                 link: "/use"
+            },
+            {
+                text: "插件市场",
+                link: "/PluginMarket"
             },
             {
                 text: "插件开发指南",
