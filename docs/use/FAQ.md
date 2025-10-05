@@ -25,34 +25,43 @@
 
 #### 方法二：直接修改配置文件
 
-    如果您没有`配置修改`板块，可以直接修改ToolDelta程序同目录下的`ToolDelta基本配置.json`文件：
-    ```json
-    {
-        "是否记录日志": true,
-        "全局GitHub镜像": "https://github.Tooldelta.top",
-        "插件市场源": "https://pm.tooldelta.top",
-        "使用哪个序号的机器人账号进服": 0,
-        "NeOmega接入点启动模式": {
-            "服务器号": 114514,
-            "密码": "",
-            "验证服务器地址(更换时记得更改fbtoken)": ""
-        }
+如果您没有`配置修改`板块，可以直接修改ToolDelta程序同目录下的`ToolDelta基本配置.json`文件：
+
+```json
+{
+    "是否记录日志": true,
+    "全局GitHub镜像": "https://github.Tooldelta.top",
+    "插件市场源": "https://pm.tooldelta.top",
+    "使用哪个序号的机器人账号进服": 0,
+    "NeOmega接入点启动模式": {
+        "服务器号": 114514,
+        "密码": "",
+        "验证服务器地址(更换时记得更改fbtoken)": ""
     }
-    ```
-    
-    对与使用 FateArk 接入点的用户，请使用下方的`ToolDelta基本配置.json`文件：
-    ```json
-    {
-        "启动器启动模式(请不要手动更改此项, 改为0可重置)": 5,
-        "是否记录日志": true,
-        "全局GitHub镜像": "https://github.Tooldelta.top",
-        "插件市场源": "https://pm.tooldelta.top",
-        "FateArk接入点启动模式": {
-          "服务器号": 114514,
-           "密码": "",
-           "验证服务器地址(更换时记得更改fbtoken)": ""
-        }
+}
+```
+
+对于使用 FateArk 接入点的用户，请使用下方的`ToolDelta基本配置.json`文件：
+
+```json
+{
+    "启动器启动模式(请不要手动更改此项, 改为0可重置)": 5,
+    "是否记录日志": true,
+    "全局GitHub镜像": "https://github.Tooldelta.top",
+    "插件市场源": "https://pm.tooldelta.top",
+    "FateArk接入点启动模式": {
+        "服务器号": 114514,
+        "密码": "",
+        "验证服务器地址(更换时记得更改fbtoken)": ""
     }
-    ```
+}
+```
 
 完成修改后保存配置文件并重启应用即可生效。
+
+## Q2：使用 FateArk 接入点登录时崩溃
+![如图](https://img.cdn1.vip/i/68e067be3923f_1759537086.webp)
+
+### A2：  
+如果你使用的是**面板**，请将此问题反映给**面板管理者**  
+如果你是**面板管理者/本地搭建者**，那么你需要把你的服务器 `IP` 私信发送给 `SuperScript (2528622340)`
