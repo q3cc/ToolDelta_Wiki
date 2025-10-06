@@ -1,8 +1,8 @@
 <template>
-    <h2>插件</h2>
+    <h2>插件与整合包</h2>
     <div v-if="loading">加载中...</div>
     <div v-else>
-        <div class="plugin-card" v-for="item in pluginList" :key="item.name">
+        <div class="plugin-card" v-for="item in itemList" :key="item.name" :class="{ 'package-card': item.isPackage }">
             <div class="plugin-header">
                 <div class="plugin-name">{{ item.name }}</div>
             </div>
@@ -18,21 +18,37 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const pluginList = ref([])
+const itemList = ref([])
 const loading = ref(true)
 
 onMounted(async () => {
     try {
         const response = await fetch('https://pm.tooldelta.top/market_tree.json')
         const data = await response.json()
-        
-        // 将对象转换为数组
+
+        // 将插件转换为数组
         const plugins = []
         for (const key in data.MarketPlugins) {
-            plugins.push(data.MarketPlugins[key])
+            plugins.push({
+                ...data.MarketPlugins[key],
+                isPackage: false
+            })
         }
-        
-        pluginList.value = plugins
+
+        // 将整合包转换为数组
+        const packages = []
+        for (const key in data.Packages) {
+            packages.push({
+                name: `[整合包] ${key}`,
+                author: data.Packages[key].author,
+                version: data.Packages[key].version,
+                description: data.Packages[key].description,
+                isPackage: true
+            })
+        }
+
+        // 合并整合包和插件，整合包放在前面
+        itemList.value = [...packages, ...plugins]
     } catch (error) {
         console.error('加载插件数据失败:', error)
     } finally {
@@ -63,6 +79,10 @@ onMounted(async () => {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     position: relative;
+}
+
+.package-card .plugin-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .plugin-name {
