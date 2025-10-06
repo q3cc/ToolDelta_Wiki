@@ -106,10 +106,10 @@ onMounted(async () => {
 
 <style scoped>
 .plugin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 25px !important;
+    width: 100% !important;
 }
 
 .plugin-card {
