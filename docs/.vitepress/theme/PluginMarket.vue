@@ -107,8 +107,8 @@ onMounted(async () => {
 <style scoped>
 .plugin-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-    gap: 25px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
     width: 100% !important;
 }
 
@@ -137,7 +137,7 @@ onMounted(async () => {
 }
 
 .plugin-header {
-    padding: 20px 25px;
+    padding: 15px 20px;
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     position: relative;
@@ -153,15 +153,18 @@ onMounted(async () => {
 }
 
 .plugin-name {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .plugin-meta {
     display: flex;
     justify-content: space-between;
-    padding: 15px 25px;
+    padding: 12px 20px;
     border-bottom: 1px solid var(--vp-c-divider);
     background-color: var(--vp-c-bg-soft);
     transition: background-color 0.5s, border-color 0.5s;
@@ -185,16 +188,20 @@ onMounted(async () => {
 }
 
 .plugin-description {
-    padding: 20px 25px;
+    padding: 15px 20px;
     color: var(--vp-c-text-1);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.6;
     transition: color 0.5s;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 @media (max-width: 768px) {
     .plugin-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     .plugin-meta {
@@ -203,7 +210,7 @@ onMounted(async () => {
     }
 
     .plugin-name {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 </style>
