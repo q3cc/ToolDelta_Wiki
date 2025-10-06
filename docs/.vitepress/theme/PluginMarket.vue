@@ -1,26 +1,55 @@
 <template>
     <h2>插件与整合包</h2>
     <div v-if="loading">加载中...</div>
-    <div v-else class="plugin-grid">
-        <div class="plugin-card" v-for="item in itemList" :key="item.name" :class="{ 'package-card': item.isPackage }">
-            <div class="plugin-header" @click="openGithub(item)" style="cursor: pointer;">
-                <div class="plugin-name">{{ item.name }}</div>
+    <div v-else>
+        <div class="search-box">
+            <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="搜索插件名、作者或描述..."
+                class="search-input"
+            />
+        </div>
+        <div v-if="filteredList.length === 0" class="no-results">
+            未找到匹配的插件或整合包
+        </div>
+        <div v-else class="plugin-grid">
+            <div class="plugin-card" v-for="item in filteredList" :key="item.name" :class="{ 'package-card': item.isPackage }">
+                <div class="plugin-header" @click="openGithub(item)" style="cursor: pointer;">
+                    <div class="plugin-name">{{ item.name }}</div>
+                </div>
+                <div class="plugin-meta">
+                    <div class="plugin-author">{{ item.author }}</div>
+                    <div class="plugin-version">{{ item.version }}</div>
+                </div>
+                <div class="plugin-description">{{ item.description || '暂无描述' }}</div>
             </div>
-            <div class="plugin-meta">
-                <div class="plugin-author">{{ item.author }}</div>
-                <div class="plugin-version">{{ item.version }}</div>
-            </div>
-            <div class="plugin-description">{{ item.description || '暂无描述' }}</div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const itemList = ref([])
 const loading = ref(true)
 const pluginNameMap = ref({})
+const searchQuery = ref('')
+
+const filteredList = computed(() => {
+    if (!searchQuery.value.trim()) {
+        return itemList.value
+    }
+
+    const query = searchQuery.value.toLowerCase()
+    return itemList.value.filter(item => {
+        return (
+            item.name.toLowerCase().includes(query) ||
+            item.author.toLowerCase().includes(query) ||
+            (item.description && item.description.toLowerCase().includes(query))
+        )
+    })
+})
 
 const openGithub = (item) => {
     const baseUrl = 'https://github.com/ToolDelta-Basic/PluginMarket/tree/main'
@@ -105,6 +134,37 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.search-box {
+    margin-bottom: 30px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--vp-c-divider);
+    border-radius: 8px;
+    background-color: var(--vp-c-bg);
+    color: var(--vp-c-text-1);
+    transition: border-color 0.3s, background-color 0.5s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--vp-c-brand-1);
+}
+
+.search-input::placeholder {
+    color: var(--vp-c-text-3);
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--vp-c-text-2);
+    font-size: 1.1rem;
+}
+
 .plugin-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
