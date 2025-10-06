@@ -26,15 +26,6 @@ onMounted(async () => {
         const response = await fetch('https://pm.tooldelta.top/market_tree.json')
         const data = await response.json()
 
-        // 将插件转换为数组
-        const plugins = []
-        for (const key in data.MarketPlugins) {
-            plugins.push({
-                ...data.MarketPlugins[key],
-                isPackage: false
-            })
-        }
-
         // 将整合包转换为数组
         const packages = []
         for (const key in data.Packages) {
@@ -45,6 +36,34 @@ onMounted(async () => {
                 description: data.Packages[key].description,
                 isPackage: true
             })
+        }
+
+        // 将插件转换为数组并获取描述
+        const plugins = []
+        const pluginIdsMap = await fetch('https://pm.tooldelta.top/plugin_ids_map.json').then(r => r.json())
+
+        for (const pluginId in data.MarketPlugins) {
+            const pluginInfo = data.MarketPlugins[pluginId]
+            const pluginName = pluginIdsMap[pluginId]
+
+            if (pluginName) {
+                try {
+                    const datasResponse = await fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
+                    const datasJson = await datasResponse.json()
+
+                    plugins.push({
+                        ...pluginInfo,
+                        description: datasJson.description || '暂无描述',
+                        isPackage: false
+                    })
+                } catch (e) {
+                    plugins.push({
+                        ...pluginInfo,
+                        description: '暂无描述',
+                        isPackage: false
+                    })
+                }
+            }
         }
 
         // 合并整合包和插件，整合包放在前面
