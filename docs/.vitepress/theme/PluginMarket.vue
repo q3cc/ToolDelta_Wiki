@@ -22,8 +22,7 @@
                     <div class="plugin-author">{{ item.author }}</div>
                     <div class="plugin-version">{{ item.version }}</div>
                 </div>
-                <div class="plugin-description" @click="showFullDescription(item)" :class="{ 'expanded': expandedItem === item.name }">
-                    {{ item.description || '暂无描述' }}
+                <div class="plugin-description" @click="showFullDescription(item)" :class="{ 'expanded': expandedItem === item.name }" v-html="parseMinecraftColor(item.description || '暂无描述')">
                 </div>
             </div>
         </div>
@@ -41,8 +40,7 @@
                     <span>作者: {{ currentItem?.author }}</span>
                     <span>版本: {{ currentItem?.version }}</span>
                 </div>
-                <div class="modal-description">
-                    {{ currentItem?.description || '暂无描述' }}
+                <div class="modal-description" v-html="parseMinecraftColor(currentItem?.description || '暂无描述')">
                 </div>
             </div>
         </div>
@@ -59,6 +57,87 @@ const searchQuery = ref('')
 const modalVisible = ref(false)
 const currentItem = ref(null)
 const expandedItem = ref(null)
+
+// Minecraft 颜色代码映射
+const colorMap = {
+    '0': '#000000', // black
+    '1': '#0000AA', // dark_blue
+    '2': '#00AA00', // dark_green
+    '3': '#00AAAA', // dark_aqua
+    '4': '#AA0000', // dark_red
+    '5': '#AA00AA', // dark_purple
+    '6': '#FFAA00', // gold
+    '7': '#AAAAAA', // gray
+    '8': '#555555', // dark_gray
+    '9': '#5555FF', // blue
+    'a': '#55FF55', // green
+    'b': '#55FFFF', // aqua
+    'c': '#FF5555', // red
+    'd': '#FF55FF', // light_purple
+    'e': '#FFFF55', // yellow
+    'f': '#FFFFFF', // white
+    'g': '#DDD605', // minecoin_gold
+    'h': '#E3D4D1', // material_quartz
+    'i': '#CECACA', // material_iron
+    'j': '#443A3B', // material_netherite
+    'm': '#971607', // material_redstone
+    'n': '#B4684D', // material_copper
+    'p': '#DEB12D', // material_gold
+    'q': '#47A036', // material_emerald
+    's': '#2CBAA8', // material_diamond
+    't': '#21497B', // material_lapis
+    'u': '#9A5CC6', // material_amethyst
+    'v': '#EB7114'  // material_resin
+}
+
+// 转换 Minecraft 颜色代码为 HTML
+const parseMinecraftColor = (text) => {
+    if (!text) return ''
+
+    let result = ''
+    let currentColor = null
+    let i = 0
+
+    while (i < text.length) {
+        if (text[i] === '§' && i + 1 < text.length) {
+            const code = text[i + 1].toLowerCase()
+
+            // §r 重置颜色
+            if (code === 'r') {
+                if (currentColor !== null) {
+                    result += '</span>'
+                    currentColor = null
+                }
+                i += 2
+                continue
+            }
+
+            // 检查是否是有效的颜色代码
+            if (colorMap[code]) {
+                // 如果已有颜色，先闭合
+                if (currentColor !== null) {
+                    result += '</span>'
+                }
+                // 开始新颜色
+                currentColor = colorMap[code]
+                result += `<span style="color: ${currentColor}">`
+                i += 2
+                continue
+            }
+        }
+
+        // 普通字符
+        result += text[i]
+        i++
+    }
+
+    // 闭合未关闭的标签
+    if (currentColor !== null) {
+        result += '</span>'
+    }
+
+    return result
+}
 
 const filteredList = computed(() => {
     if (!searchQuery.value.trim()) {
