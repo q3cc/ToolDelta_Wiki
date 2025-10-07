@@ -58,8 +58,8 @@ const modalVisible = ref(false)
 const currentItem = ref(null)
 const expandedItem = ref(null)
 
-// Minecraft 颜色代码映射
-const colorMap = {
+// Minecraft 颜色代码映射（深色主题）
+const colorMapDark = {
     '0': '#000000', // black
     '1': '#0000AA', // dark_blue
     '2': '#00AA00', // dark_green
@@ -90,6 +90,43 @@ const colorMap = {
     'v': '#EB7114'  // material_resin
 }
 
+// Minecraft 颜色代码映射（浅色主题）
+const colorMapLight = {
+    '0': '#000000', // black
+    '1': '#000088', // 略深蓝
+    '2': '#008800', // 略深绿
+    '3': '#008888', // 深青色
+    '4': '#880000', // 深红
+    '5': '#880088', // 深紫
+    '6': '#CC8800', // 降亮度
+    '7': '#666666', // 中灰
+    '8': '#333333', // 深灰
+    '9': '#3333CC', // 深蓝
+    'a': '#339933', // 深绿
+    'b': '#339999', // 深青
+    'c': '#CC3333', // 深红
+    'd': '#CC33CC', // 深紫
+    'e': '#999900', // 暗黄
+    'f': '#333333', // 深灰字
+    'g': '#998800', // minecoin_gold 调整
+    'h': '#999999', // material_quartz 调整
+    'i': '#888888', // material_iron 调整
+    'j': '#443A3B', // material_netherite
+    'm': '#880000', // material_redstone 调整
+    'n': '#885533', // material_copper 调整
+    'p': '#AA8800', // material_gold 调整
+    'q': '#338833', // material_emerald 调整
+    's': '#338888', // material_diamond 调整
+    't': '#21497B', // material_lapis
+    'u': '#883388', // material_amethyst 调整
+    'v': '#AA5500'  // material_resin 调整
+}
+
+// 检测是否为浅色主题
+const isLightTheme = () => {
+    return !document.documentElement.classList.contains('dark')
+}
+
 // 转换 Minecraft 颜色代码为 HTML
 const parseMinecraftColor = (text) => {
     if (!text) return ''
@@ -97,6 +134,7 @@ const parseMinecraftColor = (text) => {
     let result = ''
     let currentColor = null
     let i = 0
+    const colorMap = isLightTheme() ? colorMapLight : colorMapDark
 
     while (i < text.length) {
         if (text[i] === '§' && i + 1 < text.length) {
@@ -387,14 +425,6 @@ onMounted(async () => {
     transition: color 0.2s;
 }
 
-/* 浅色主题下为描述添加灰色背景 */
-.plugin-description:not(.dark .plugin-description) {
-    background-color: #f6f6f7;
-    padding: 8px 16px 8px 16px;
-    margin: 0 16px 16px 16px;
-    border-radius: 4px;
-}
-
 .plugin-description:hover {
     color: var(--vp-c-text-1);
 }
@@ -482,13 +512,6 @@ onMounted(async () => {
     line-height: 1.6;
     color: var(--vp-c-text-1);
     white-space: pre-wrap;
-}
-
-/* 浅色主题下为模态框描述添加灰色背景 */
-.modal-description:not(.dark .modal-description) {
-    background-color: #f6f6f7;
-    padding: 12px;
-    border-radius: 4px;
 }
 
 @media (max-width: 768px) {
