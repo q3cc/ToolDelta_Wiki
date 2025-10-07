@@ -22,7 +22,28 @@
                     <div class="plugin-author">{{ item.author }}</div>
                     <div class="plugin-version">{{ item.version }}</div>
                 </div>
-                <div class="plugin-description">{{ item.description || '暂无描述' }}</div>
+                <div class="plugin-description" @click="showFullDescription(item)" :class="{ 'expanded': expandedItem === item.name }">
+                    {{ item.description || '暂无描述' }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div v-if="modalVisible" class="modal-overlay" @click="closeModal">
+        <div class="modal-content" @click.stop>
+            <div class="modal-header">
+                <h3>{{ currentItem?.name }}</h3>
+                <button class="modal-close" @click="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span>作者: {{ currentItem?.author }}</span>
+                    <span>版本: {{ currentItem?.version }}</span>
+                </div>
+                <div class="modal-description">
+                    {{ currentItem?.description || '暂无描述' }}
+                </div>
             </div>
         </div>
     </div>
@@ -35,6 +56,9 @@ const itemList = ref([])
 const loading = ref(true)
 const pluginNameMap = ref({})
 const searchQuery = ref('')
+const modalVisible = ref(false)
+const currentItem = ref(null)
+const expandedItem = ref(null)
 
 const filteredList = computed(() => {
     if (!searchQuery.value.trim()) {
@@ -72,6 +96,16 @@ const openGithub = (item) => {
     }
 }
 
+const showFullDescription = (item) => {
+    currentItem.value = item
+    modalVisible.value = true
+}
+
+const closeModal = () => {
+    modalVisible.value = false
+    currentItem.value = null
+}
+
 onMounted(async () => {
     try {
         const response = await fetch('https://pm.tooldelta.top/market_tree.json')
@@ -93,8 +127,9 @@ onMounted(async () => {
             })
         }
 
-        // 将插件转换为数组并获取描述
+        // 先快速显示插件基本信息
         const plugins = []
+        const pluginDataPromises = []
 
         for (const pluginId in data.MarketPlugins) {
             const pluginInfo = data.MarketPlugins[pluginId]
@@ -104,30 +139,49 @@ onMounted(async () => {
                 // 保存插件名到文件夹名的映射
                 pluginNameMap.value[pluginInfo.name] = pluginName
 
-                try {
-                    const datasResponse = await fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
-                    const datasJson = await datasResponse.json()
+                // 先添加基本信息到列表
+                plugins.push({
+                    ...pluginInfo,
+                    description: '加载中...',
+                    isPackage: false
+                })
 
-                    plugins.push({
-                        ...pluginInfo,
-                        description: datasJson.description || '暂无描述',
-                        isPackage: false
-                    })
-                } catch (e) {
-                    plugins.push({
-                        ...pluginInfo,
-                        description: '暂无描述',
-                        isPackage: false
-                    })
-                }
+                // 并发获取详细描述
+                const pluginIndex = plugins.length - 1
+                pluginDataPromises.push(
+                    fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
+                        .then(r => r.json())
+                        .then(datasJson => {
+                            // 通过索引更新，触发响应式更新
+                            const allItems = itemList.value
+                            const targetIndex = packages.length + pluginIndex
+                            allItems[targetIndex] = {
+                                ...allItems[targetIndex],
+                                description: datasJson.description || '暂无描述'
+                            }
+                            itemList.value = [...allItems]
+                        })
+                        .catch(() => {
+                            const allItems = itemList.value
+                            const targetIndex = packages.length + pluginIndex
+                            allItems[targetIndex] = {
+                                ...allItems[targetIndex],
+                                description: '暂无描述'
+                            }
+                            itemList.value = [...allItems]
+                        })
+                )
             }
         }
 
-        // 合并整合包和插件，整合包放在前面
+        // 合并整合包和插件，整合包放在前面，立即显示
         itemList.value = [...packages, ...plugins]
+        loading.value = false
+
+        // 等待所有描述加载完成
+        await Promise.all(pluginDataPromises)
     } catch (error) {
         console.error('加载插件数据失败:', error)
-    } finally {
         loading.value = false
     }
 })
@@ -135,23 +189,27 @@ onMounted(async () => {
 
 <style scoped>
 .search-box {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .search-input {
     width: 100%;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: 2px solid var(--vp-c-divider);
-    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 6px;
     background-color: var(--vp-c-bg);
     color: var(--vp-c-text-1);
-    transition: border-color 0.3s, background-color 0.5s;
+    transition: border-color 0.2s;
 }
 
 .search-input:focus {
     outline: none;
-    border-color: var(--vp-c-brand-1);
+    border-color: #0969da;
+}
+
+.dark .search-input:focus {
+    border-color: #58a6ff;
 }
 
 .search-input::placeholder {
@@ -162,101 +220,181 @@ onMounted(async () => {
     text-align: center;
     padding: 40px 20px;
     color: var(--vp-c-text-2);
-    font-size: 1.1rem;
+    font-size: 14px;
 }
 
 .plugin-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
+    gap: 16px !important;
     width: 100% !important;
 }
 
 .plugin-card {
     background-color: var(--vp-c-bg);
     border: 1px solid var(--vp-c-divider);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s, border-color 0.5s;
+    transition: border-color 0.2s;
     display: flex;
     flex-direction: column;
 }
 
-.dark .plugin-card {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
 .plugin-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.dark .plugin-card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    border-color: var(--vp-c-text-3);
 }
 
 .plugin-header {
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    position: relative;
-    transition: opacity 0.3s ease;
+    padding: 16px;
+    border-bottom: 1px solid var(--vp-c-divider);
+    transition: background-color 0.2s;
 }
 
 .plugin-header:hover {
-    opacity: 0.9;
+    background-color: var(--vp-c-bg-soft);
 }
 
-.package-card .plugin-header {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.package-card .plugin-name::before {
+    content: "📦 ";
+    margin-right: 6px;
 }
 
 .plugin-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0969da;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
+.dark .plugin-name {
+    color: #58a6ff;
+}
+
 .plugin-meta {
     display: flex;
     justify-content: space-between;
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--vp-c-divider);
-    background-color: var(--vp-c-bg-soft);
-    transition: background-color 0.5s, border-color 0.5s;
+    padding: 16px;
+    gap: 12px;
 }
 
 .plugin-author,
 .plugin-version {
-    font-size: 0.95rem;
+    font-size: 12px;
     color: var(--vp-c-text-2);
-    transition: color 0.5s;
 }
 
 .plugin-author::before {
-    content: "👤 ";
-    margin-right: 5px;
+    content: "";
+    margin-right: 0;
 }
 
 .plugin-version::before {
-    content: "🔖 ";
-    margin-right: 5px;
+    content: "";
+    margin-right: 0;
 }
 
 .plugin-description {
-    padding: 15px 20px;
-    color: var(--vp-c-text-1);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    transition: color 0.5s;
+    padding: 0 16px 16px 16px;
+    color: var(--vp-c-text-2);
+    font-size: 12px;
+    line-height: 1.5;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.plugin-description:hover {
+    color: var(--vp-c-text-1);
+}
+
+/* 模态框样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--vp-c-bg);
+    border-radius: 6px;
+    border: 1px solid var(--vp-c-divider);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .modal-content {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--vp-c-text-1);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--vp-c-text-2);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close:hover {
+    background-color: var(--vp-c-bg-soft);
+    color: var(--vp-c-text-1);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--vp-c-text-2);
+}
+
+.modal-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--vp-c-text-1);
+    white-space: pre-wrap;
 }
 
 @media (max-width: 768px) {
@@ -266,11 +404,20 @@ onMounted(async () => {
 
     .plugin-meta {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .plugin-name {
-        font-size: 1.2rem;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        max-width: 100%;
+    }
+
+    .modal-meta {
+        flex-direction: column;
+        gap: 8px;
     }
 }
 </style>
