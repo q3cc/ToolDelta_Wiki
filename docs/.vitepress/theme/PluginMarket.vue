@@ -484,6 +484,13 @@ onMounted(async () => {
     white-space: pre-wrap;
 }
 
+/* 浅色主题下为模态框描述添加灰色背景 */
+.modal-description:not(.dark .modal-description) {
+    background-color: #f6f6f7;
+    padding: 12px;
+    border-radius: 4px;
+}
+
 @media (max-width: 768px) {
     .plugin-grid {
         grid-template-columns: 1fr !important;
