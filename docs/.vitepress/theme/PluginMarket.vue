@@ -223,84 +223,80 @@ const closeModal = () => {
     currentItem.value = null
 }
 
-onMounted(async () => {
-    try {
-        const response = await fetch('https://pm.tooldelta.top/market_tree.json')
-        const data = await response.json()
+onMounted(() => {
+    fetch('https://pm.tooldelta.top/market_tree.json')
+        .then(response => response.json())
+        .then(data => {
+            // 获取插件ID映射
+            return fetch('https://pm.tooldelta.top/plugin_ids_map.json')
+                .then(r => r.json())
+                .then(pluginIdsMap => {
+                    // 将整合包转换为数组
+                    const packages = []
+                    for (const key in data.Packages) {
+                        packages.push({
+                            name: `[整合包] ${key}`,
+                            originalName: key,
+                            author: data.Packages[key].author,
+                            version: data.Packages[key].version,
+                            description: data.Packages[key].description,
+                            isPackage: true
+                        })
+                    }
 
-        // 获取插件ID映射
-        const pluginIdsMap = await fetch('https://pm.tooldelta.top/plugin_ids_map.json').then(r => r.json())
+                    // 先快速显示插件基本信息
+                    const plugins = []
 
-        // 将整合包转换为数组
-        const packages = []
-        for (const key in data.Packages) {
-            packages.push({
-                name: `[整合包] ${key}`,
-                originalName: key,
-                author: data.Packages[key].author,
-                version: data.Packages[key].version,
-                description: data.Packages[key].description,
-                isPackage: true
-            })
-        }
+                    for (const pluginId in data.MarketPlugins) {
+                        const pluginInfo = data.MarketPlugins[pluginId]
+                        const pluginName = pluginIdsMap[pluginId]
 
-        // 先快速显示插件基本信息
-        const plugins = []
-        const pluginDataPromises = []
+                        if (pluginName) {
+                            // 保存插件名到文件夹名的映射
+                            pluginNameMap.value[pluginInfo.name] = pluginName
 
-        for (const pluginId in data.MarketPlugins) {
-            const pluginInfo = data.MarketPlugins[pluginId]
-            const pluginName = pluginIdsMap[pluginId]
+                            // 先添加基本信息到列表
+                            plugins.push({
+                                ...pluginInfo,
+                                description: '加载中...',
+                                isPackage: false
+                            })
 
-            if (pluginName) {
-                // 保存插件名到文件夹名的映射
-                pluginNameMap.value[pluginInfo.name] = pluginName
+                            // 获取详细描述
+                            const pluginIndex = plugins.length - 1
+                            fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
+                                .then(r => r.json())
+                                .then(datasJson => {
+                                    // 通过索引更新，触发响应式更新
+                                    const allItems = itemList.value
+                                    const targetIndex = packages.length + pluginIndex
+                                    allItems[targetIndex] = {
+                                        ...allItems[targetIndex],
+                                        description: datasJson.description || '暂无描述'
+                                    }
+                                    itemList.value = [...allItems]
+                                })
+                                .catch(() => {
+                                    const allItems = itemList.value
+                                    const targetIndex = packages.length + pluginIndex
+                                    allItems[targetIndex] = {
+                                        ...allItems[targetIndex],
+                                        description: '暂无描述'
+                                    }
+                                    itemList.value = [...allItems]
+                                })
+                        }
+                    }
 
-                // 先添加基本信息到列表
-                plugins.push({
-                    ...pluginInfo,
-                    description: '加载中...',
-                    isPackage: false
+                    // 合并整合包和插件，整合包放在前面，立即显示
+                    itemList.value = [...packages, ...plugins]
+                    loading.value = false
                 })
-
-                // 并发获取详细描述
-                const pluginIndex = plugins.length - 1
-                pluginDataPromises.push(
-                    fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
-                        .then(r => r.json())
-                        .then(datasJson => {
-                            // 通过索引更新，触发响应式更新
-                            const allItems = itemList.value
-                            const targetIndex = packages.length + pluginIndex
-                            allItems[targetIndex] = {
-                                ...allItems[targetIndex],
-                                description: datasJson.description || '暂无描述'
-                            }
-                            itemList.value = [...allItems]
-                        })
-                        .catch(() => {
-                            const allItems = itemList.value
-                            const targetIndex = packages.length + pluginIndex
-                            allItems[targetIndex] = {
-                                ...allItems[targetIndex],
-                                description: '暂无描述'
-                            }
-                            itemList.value = [...allItems]
-                        })
-                )
-            }
-        }
-
-        // 合并整合包和插件，整合包放在前面，立即显示
-        itemList.value = [...packages, ...plugins]
-        loading.value = false
-
-        // 等待所有描述加载完成
-        await Promise.all(pluginDataPromises)
-    } catch (error) {
-        console.error('加载插件数据失败:', error)
-        loading.value = false
-    }
+        })
+        .catch(error => {
+            console.error('加载插件数据失败:', error)
+            loading.value = false
+        })
 })
 </script>
 
