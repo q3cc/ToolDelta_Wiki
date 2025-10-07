@@ -90,19 +90,6 @@ const colorMap = {
     'v': '#EB7114'  // material_resin
 }
 
-// 反转颜色
-const invertColor = (hex) => {
-    const r = 255 - parseInt(hex.slice(1, 3), 16)
-    const g = 255 - parseInt(hex.slice(3, 5), 16)
-    const b = 255 - parseInt(hex.slice(5, 7), 16)
-    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`
-}
-
-// 检测是否为浅色主题
-const isLightTheme = () => {
-    return !document.documentElement.classList.contains('dark')
-}
-
 // 转换 Minecraft 颜色代码为 HTML
 const parseMinecraftColor = (text) => {
     if (!text) return ''
@@ -110,7 +97,6 @@ const parseMinecraftColor = (text) => {
     let result = ''
     let currentColor = null
     let i = 0
-    const useLightTheme = isLightTheme()
 
     while (i < text.length) {
         if (text[i] === '§' && i + 1 < text.length) {
@@ -132,8 +118,8 @@ const parseMinecraftColor = (text) => {
                 if (currentColor !== null) {
                     result += '</span>'
                 }
-                // 开始新颜色，浅色主题下反色
-                currentColor = useLightTheme ? invertColor(colorMap[code]) : colorMap[code]
+                // 开始新颜色
+                currentColor = colorMap[code]
                 result += `<span style="color: ${currentColor}">`
                 i += 2
                 continue
@@ -399,6 +385,14 @@ onMounted(async () => {
     -webkit-box-orient: vertical;
     cursor: pointer;
     transition: color 0.2s;
+}
+
+/* 浅色主题下为描述添加灰色背景 */
+.plugin-description:not(.dark .plugin-description) {
+    background-color: #f6f6f7;
+    padding: 8px 16px 8px 16px;
+    margin: 0 16px 16px 16px;
+    border-radius: 4px;
 }
 
 .plugin-description:hover {
