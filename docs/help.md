@@ -5,7 +5,7 @@ next: false
 # 协助维护文档
 
 真的愿意帮忙维护吗？太好了!
-文档仓库地址为https://github.com/daqyt/ToolDelta-wiki
+文档仓库地址：https://github.com/ToolDelta-Basic/Wiki
 
 ## 如何参与呢？
 

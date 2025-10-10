@@ -13,6 +13,9 @@ hero:
       text: 开始教程罢~🤔
       link: /use/
     - theme: alt
+      text: 插件市场
+      link: /PluginMarket/
+    - theme: alt
       text: 插件开发文档
       link: /plugin-dev/
     - theme: alt
