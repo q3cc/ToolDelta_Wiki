@@ -65,10 +65,6 @@ export default defineConfig({
                 link: "/plugin-dev"
             },
             {
-                text: "自助租赁服 Wiki",
-                link: "/rental_server_wikis"
-            },
-            {
                 text: "协助文档维护",
                 link: "/help"
             },
