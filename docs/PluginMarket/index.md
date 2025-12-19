@@ -1,3 +1,5 @@
-# 插件市场
+---
+layout: page
+---
 
 <PluginMarket/>
