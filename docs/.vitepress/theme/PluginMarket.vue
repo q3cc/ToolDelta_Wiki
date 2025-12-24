@@ -79,10 +79,16 @@
 
           <div class="card-footer">
             <span class="version-tag">v{{ item.version }}</span>
-            <button class="action-btn" @click.stop="openGithub(item)">
-              查看源码
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </button>
+            <div class="footer-actions">
+              <button class="action-btn copy-btn" @click.stop="handleCopy(item)" :class="{ 'copied': copiedStates[getCopyStateKey(item)] }">
+                <span v-if="copiedStates[getCopyStateKey(item)]">✓ 已复制</span>
+                <span v-else>📋 复制指令</span>
+              </button>
+              <button class="action-btn" @click.stop="openGithub(item)">
+                源码
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -164,18 +170,48 @@
         </div>
       </div>
     </Transition>
+
+    <!-- Install Warning Modal -->
+    <Transition name="modal-fade">
+      <div v-if="warningVisible" class="modal-overlay" @click="warningVisible = false">
+        <div class="modal-content warning-modal" @click.stop>
+          <div class="modal-header">
+            <h3>⚠️ 安装前必读</h3>
+            <button class="modal-close" @click="warningVisible = false">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="warning-text"><strong>当前 ToolDelta 框架尚未内置此功能。</strong></p>
+            <p class="warning-text">使用快捷安装指令前，请确保您已手动安装了 <strong>"插件快捷安装"</strong> 插件。</p>
+            <div class="command-preview">
+              <code>{{ getInstallCmd(pendingCmdItem) }}</code>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="primary-btn full-width" @click="confirmWarning">
+              我知道了,复制指令
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick, reactive } from 'vue'
 
 const itemList = ref([])
 const loading = ref(true)
-const pluginNameMap = ref({})
+const pluginNameMap = ref({})      // display name -> install id
+const pluginFolderMap = ref({})    // display name -> folder path for GitHub/assets
 const searchQuery = ref('')
 const modalVisible = ref(false)
 const currentItem = ref(null)
+const warningVisible = ref(false)
+const pendingCmdItem = ref(null)
+const copiedStates = reactive({})  // Use reactive for object property reactivity
 let modalResetTimer = null
 
 // Minecraft Color Maps
@@ -312,6 +348,71 @@ const packageCount = computed(() => itemList.value.filter(i => i.isPackage).leng
 
 watch(filteredList, () => nextTick(setupCardObserver), { flush: 'post' })
 
+const getInstallCmd = (item) => {
+  if (!item) return ''
+  const installId = pluginNameMap.value[item.name]
+    || (item.isPackage ? item.originalName : item.pluginId)
+    || item.name
+  return `plg add ${installId}`
+  // return `plg add ${installId} -url https://pm.tooldelta.top`
+}
+
+// Generate stable key for copiedStates to avoid collisions
+const getCopyStateKey = (item) => {
+  if (!item) return ''
+  const installId = pluginNameMap.value[item.name]
+    || (item.isPackage ? item.originalName : item.pluginId)
+    || item.name
+  return `${item.isPackage ? 'pkg' : 'plugin'}_${installId}`
+}
+
+const handleCopy = (item) => {
+  try {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('td_install_cmd_warning_shown')) {
+      executeCopy(item)
+    } else {
+      pendingCmdItem.value = item
+      warningVisible.value = true
+    }
+  } catch (err) {
+    // localStorage might be disabled (Safari private mode, etc.)
+    console.warn('localStorage unavailable, showing warning anyway:', err)
+    pendingCmdItem.value = item
+    warningVisible.value = true
+  }
+}
+
+const confirmWarning = () => {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('td_install_cmd_warning_shown', 'true')
+    }
+  } catch (err) {
+    console.warn('Could not save warning preference:', err)
+  }
+  warningVisible.value = false
+  if (pendingCmdItem.value) {
+    executeCopy(pendingCmdItem.value)
+    pendingCmdItem.value = null
+  }
+}
+
+const executeCopy = async (item) => {
+  const cmd = getInstallCmd(item)
+  const stateKey = getCopyStateKey(item)
+  try {
+    await navigator.clipboard.writeText(cmd)
+    copiedStates[stateKey] = true
+    setTimeout(() => {
+      copiedStates[stateKey] = false
+    }, 2000)
+  } catch (err) {
+    console.error('Copy failed', err)
+    // Fallback for older browsers
+    alert('复制失败，请手动复制：' + cmd)
+  }
+}
+
 const openGithub = (item) => {
   if (!item) return
   const baseUrl = 'https://github.com/ToolDelta-Basic/PluginMarket/tree/main'
@@ -320,7 +421,7 @@ const openGithub = (item) => {
     const packageName = item.name.replace('[整合包] ', '')
     path = `/%5Bpkg%5D${encodeURIComponent(packageName)}`
   } else {
-    const pluginFolderName = pluginNameMap.value[item.name]
+    const pluginFolderName = pluginFolderMap.value[item.name]
     if (pluginFolderName) path = `/${encodeURIComponent(pluginFolderName)}`
   }
   if (path) window.open(baseUrl + path, '_blank')
@@ -354,40 +455,45 @@ onMounted(() => {
       return fetch('https://pm.tooldelta.top/plugin_ids_map.json')
         .then(r => r.json())
         .then(pluginIdsMap => {
-          const packages = Object.entries(data.Packages).map(([key, val]) => ({
-            name: `[整合包] ${key}`,
-            originalName: key,
-            author: val.author,
-            version: val.version,
-            description: val.description,
-            isPackage: true,
-            includedPlugins: (val['plugin-ids'] || []).map(id => {
-              const p = data.MarketPlugins[id]
-              return p
-                ? { name: p.name, author: p.author, version: p.version }
-                : { name: id, author: '未知', version: '?' }
-            })
-          }))
+          const packages = Object.entries(data.Packages).map(([key, val]) => {
+            const displayName = `[整合包] ${key}`
+            pluginNameMap.value[displayName] = key
+            return {
+              name: displayName,
+              originalName: key,
+              author: val.author,
+              version: val.version,
+              description: val.description,
+              isPackage: true,
+              includedPlugins: (val['plugin-ids'] || []).map(id => {
+                const p = data.MarketPlugins[id]
+                return p
+                  ? { name: p.name, author: p.author, version: p.version }
+                  : { name: id, author: '未知', version: '?' }
+              })
+            }
+          })
 
           const plugins = []
           const descTasks = []
 
           for (const pluginId in data.MarketPlugins) {
             const info = data.MarketPlugins[pluginId]
-            const name = pluginIdsMap[pluginId]
-            if (name) {
-              pluginNameMap.value[info.name] = name
-              plugins.push({ ...info, description: '加载中...', isPackage: false })
+            const folderName = pluginIdsMap[pluginId]
+            if (folderName) {
+              pluginNameMap.value[info.name] = pluginId
+              pluginFolderMap.value[info.name] = folderName
+              plugins.push({ ...info, pluginId, description: '加载中...', isPackage: false })
               const targetIndex = packages.length + plugins.length - 1
-              descTasks.push({ targetIndex, pluginName: name })
+              descTasks.push({ targetIndex, folderName })
             }
           }
 
           itemList.value = [...packages, ...plugins]
           loading.value = false
 
-          descTasks.forEach(({ targetIndex, pluginName }) => {
-            fetch(`https://pm.tooldelta.top/${pluginName}/datas.json`)
+          descTasks.forEach(({ targetIndex, folderName }) => {
+            fetch(`https://pm.tooldelta.top/${folderName}/datas.json`)
               .then(r => r.json())
               .then(d => {
                 const next = [...itemList.value]
@@ -638,6 +744,11 @@ onUnmounted(() => {
   border-radius: 0 0 12px 12px;
 }
 
+.footer-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .version-tag {
   font-size: 12px;
   font-family: var(--vp-font-family-mono);
@@ -667,6 +778,10 @@ onUnmounted(() => {
   background: var(--vp-c-brand-dimm);
 }
 
+.action-btn.copied {
+  color: var(--vp-c-green-2, #10b981);
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;
@@ -690,6 +805,10 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--vp-c-divider);
+}
+
+.warning-modal {
+  max-width: 450px;
 }
 
 .modal-header {
@@ -897,6 +1016,27 @@ onUnmounted(() => {
 
 .primary-btn:hover {
   background: var(--vp-c-brand-dark);
+}
+
+.full-width {
+  width: 100%;
+  justify-content: center;
+}
+
+.warning-text {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.command-preview {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--vp-c-bg-alt);
+  border-radius: 8px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  word-break: break-all;
+  border: 1px solid var(--vp-c-divider);
 }
 
 /* Skeleton */
