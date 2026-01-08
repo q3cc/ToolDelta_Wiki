@@ -19,11 +19,37 @@
 | [Windows 用户点我](https://ghfast.top/https://github.com/ToolDelta-Basic/ToolDelta/releases/latest/download/ToolDelta-windows.exe) | [Linux 用户点我](https://ghfast.top/https://github.com/ToolDelta-Basic/ToolDelta/releases/latest/download/ToolDelta-linux) |
 | ------ | ------ |
 
+::: warning
+目前 Windows 版暂不可用，请使用下方的 pip 库安装方式。
+:::
+
 安卓手机用户请使用 Termux 运行这段命令：
 
 ```bash
 curl -sSL https://github.tooldelta.top/https://raw.githubusercontent.com/ToolDelta/ToolDelta/main/install.sh | bash
 ```
+
+::: details 高级用户（使用 pip 库）
+
+运行以下命令安装 ToolDelta：
+
+```bash
+pip install tooldelta
+```
+
+然后创建启动脚本：
+
+```bash
+echo "import tooldelta; tooldelta.client_title()" > main.py
+```
+
+运行 ToolDelta：
+
+```bash
+python main.py
+```
+
+:::
 
 ::: details 高级用户（使用Docker）
 
