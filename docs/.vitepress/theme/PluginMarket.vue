@@ -523,6 +523,28 @@ const showFullDescription = (item) => {
   modalVisible.value = true
 }
 
+const openQueryTargetModal = () => {
+  if (typeof window === 'undefined') return false
+  const params = new URLSearchParams(window.location.search)
+  const pluginId = params.get('plugin')
+  const packageName = params.get('package')
+
+  if (!pluginId && !packageName) return false
+
+  const target = itemList.value.find(item => {
+    if (pluginId) return !item.isPackage && item.pluginId === pluginId
+    return item.isPackage && item.originalName === packageName
+  })
+
+  if (!target) return false
+  showFullDescription(target)
+  return true
+}
+
+watch(itemList, () => {
+  if (!modalVisible.value) nextTick(openQueryTargetModal)
+}, { flush: 'post' })
+
 const goBackOrCloseModal = () => {
   if (!modalParentItem.value) {
     closeModal()
@@ -591,6 +613,7 @@ onMounted(() => {
 
       itemList.value = [...packages, ...plugins]
       loading.value = false
+      nextTick(openQueryTargetModal)
 
       descTasks.forEach(({ targetIndex, folderName }) => {
         fetchJson(getMarketFileUrl(marketBaseUrl, `${folderName}/datas.json`))
